@@ -12,6 +12,7 @@ const Categories = () => {
         <ul className={styles.categoriesList}>
             <li>Strefa Okazji</li>
             <li>Promocje z Monetami</li>
+            
             <li>Premiery</li>
             <li>Allegro inspiruje</li>
             <li>Sprzedawaj na allegro</li>

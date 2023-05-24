@@ -9,20 +9,22 @@
 		padding: 0.5em 2.5em 0.5em 2em;
 		background-color: #fff;
 		border-right: 1px solid #dadada;
-        text-align: left;
-        width: 160px;
-        text-align: left;
+		text-align: left;
+		width: 160px;
+		text-align: left;
 
-        .actionArrow{
-            rotate: 90deg;
-            position:absolute;
-            transform: translate(-5px, -10px);
-        }
+		.actionArrow {
+			rotate: 90deg;
+			position: absolute;
+			transform: translate(-5px, -10px);
+		}
 	}
 
 	.categoriesList {
 		display: flex;
 		list-style: none;
+		overflow: auto;
+		white-space: nowrap;
 
 		li {
 			padding: 20px;
