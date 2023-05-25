@@ -1,29 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
+import CartModal from "../CartModal/CartModal";
 
 import styles from "./Navigation.module.scss";
 import logo from "../../Img/logo.svg";
 import userIcon from "../../Img/Icons/user-icon.svg";
 import cartIcon from "../../Img/Icons/cart-icon.svg";
-import bellIcon from '../../Img/Icons/bell-icon.svg'
-import heartIcon from '../../Img/Icons/heart-icon.svg'
-import chatIcon from '../../Img/Icons/chat-icon.svg'
-import polandIcon from '../../Img/Icons/poland-icon.svg'
+import bellIcon from "../../Img/Icons/bell-icon.svg";
+import heartIcon from "../../Img/Icons/heart-icon.svg";
+import chatIcon from "../../Img/Icons/chat-icon.svg";
+import polandIcon from "../../Img/Icons/poland-icon.svg";
 
 const Navigation = () => {
-    const [isScrolled, setIsScrolled] = useState(false)
+	const [isScrolled, setIsScrolled] = useState(false);
+	const [isHovered, setIsHovered] = useState(false);
 
-    const scrollHandler = () => {
-        if(window.scrollY > 110){
-            setIsScrolled(true)
-        }else{
-            setIsScrolled(false)
-        }
-    }
+	const scrollHandler = () => {
+		if (window.scrollY > 110) {
+			setIsScrolled(true);
+		} else {
+			setIsScrolled(false);
+		}
+	};
 
-    useEffect(() => {
-        window.addEventListener('scroll', scrollHandler)
-    }, [])
+	useEffect(() => {
+		window.addEventListener("scroll", scrollHandler);
+	}, []);
+
+	const handlerMouseEnter = () => {
+		setIsHovered(true);
+	};
+
+	const handlerMouseLeave = () => {
+		setIsHovered(false);
+	};
 
 	return (
 		<nav className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`}>
@@ -67,7 +77,14 @@ const Navigation = () => {
 				<img src={heartIcon} alt="Ikonka serduszka" />
 				<img src={chatIcon} alt="Ikonka czatu" />
 				<img src={bellIcon} alt="Ikonka dzwoneczka" />
-				<img src={cartIcon} alt="Ikonka koszyka" />
+				<img
+					src={cartIcon}
+					className={styles.cartIcon}
+					onMouseEnter={handlerMouseEnter}
+					onMouseLeave={handlerMouseLeave}
+					alt="Ikonka koszyka"
+				/>
+				<CartModal isHovered={isHovered}/>
 				<img src={userIcon} alt="Ikonka użytkownika" />
 			</div>
 		</nav>
