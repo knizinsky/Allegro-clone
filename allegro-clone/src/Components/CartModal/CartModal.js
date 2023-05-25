@@ -4,11 +4,12 @@ import styles from "./CartModal.module.scss";
 
 const portalElement = document.getElementById("cart-modal");
 
-const CartModal = (props) => {
+const CartModal = React.forwardRef((props,ref) => {
+  
   if(props.isHovered){
     return ReactDOM.createPortal(
-      <div className={styles.cartModalWrapper}>
-        <header className={styles.cartHeader}>
+      <div ref={ref} className={styles.cartModalWrapper}>
+        <header className={styles.cartHeader} >
           <h4>Twój koszyk</h4>
           <div>
             <span className={styles.cartValueText}>WARTOŚĆ KOSZYKA</span>
@@ -29,6 +30,6 @@ const CartModal = (props) => {
       portalElement
     );
   }
-};
+});
 
 export default CartModal;

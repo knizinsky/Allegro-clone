@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
 import CartModal from "../CartModal/CartModal";
 
@@ -14,6 +14,8 @@ import polandIcon from "../../Img/Icons/poland-icon.svg";
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
+	const cartRef = useRef();
+	const cartIconRef = useRef();
 
 	const scrollHandler = () => {
 		if (window.scrollY > 110) {
@@ -32,8 +34,34 @@ const Navigation = () => {
 	};
 
 	const handlerMouseLeave = () => {
-		setIsHovered(false);
+		setTimeout(()=>{
+			if(cartRef.current != null){
+				cartRef.current.addEventListener("mouseenter", () => {
+					setTimeout(()=>{
+					setIsHovered(true);
+					},500)
+				});
+				cartRef.current.addEventListener("mouseleave", () => {
+					setTimeout(()=>{
+						setIsHovered(false);
+					},500)
+				});
+			}
+		},1)
 	};
+
+	setTimeout(() => {
+		if (cartRef.current != null) {
+			cartIconRef.current.addEventListener("mouseenter", () => {
+				setIsHovered(true);
+			});
+			cartIconRef.current.addEventListener("mouseleave", () => {
+				setTimeout(()=>{
+					setIsHovered(false);
+				},500)
+			});
+		}
+	}, 1);
 
 	return (
 		<nav className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`}>
@@ -82,9 +110,14 @@ const Navigation = () => {
 					className={styles.cartIcon}
 					onMouseEnter={handlerMouseEnter}
 					onMouseLeave={handlerMouseLeave}
+					ref={cartIconRef}
 					alt="Ikonka koszyka"
 				/>
-				<CartModal isHovered={isHovered}/>
+				<CartModal
+					ref={cartRef}
+					isHovered={isHovered}
+					setIsHovered={setIsHovered}
+				/>
 				<img src={userIcon} alt="Ikonka użytkownika" />
 			</div>
 		</nav>

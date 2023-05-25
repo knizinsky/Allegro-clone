@@ -1,5 +1,5 @@
 .cartModalWrapper{
-    position: fixed;
+    position: absolute;
     top: 142px;
     right: 0;
     width: 460px;
@@ -7,6 +7,7 @@
     border: 1px solid #c3c3c3;
     background-color: #e2e2e2;
     z-index: 1000;
+    animation: showModal .25s cubic-bezier(.64,.04,.35,1);
 
     .cartHeader{
         display: flex;
@@ -59,4 +60,14 @@
         }
     }
 
+}
+
+@keyframes showModal {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
 }
