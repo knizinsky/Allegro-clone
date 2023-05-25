@@ -1,0 +1,31 @@
+.slideWrapper {
+	width: 100vw;
+	max-width: 100%;
+    position: relative;
+
+	.mainText {
+		position: absolute;
+		left: 10%;
+        top: 35%;
+        font-size: 3.3rem;
+        font-weight: 400;
+        color: white;
+        background-color: #00a790;
+        padding: .1em .3em;
+        max-width: 40%;
+	}
+
+	.subText {
+		position: absolute;
+		left: 10%;
+        top: 55%;
+        font-size: 1.7rem;
+        font-weight: 500;
+        background-color: #fac314;
+        padding: .4em .4em
+	}
+
+	img {
+		width: 100%;
+	}
+}
