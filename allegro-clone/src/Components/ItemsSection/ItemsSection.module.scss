@@ -1,0 +1,21 @@
+.sectionWrapper{
+    margin-top: 2em;
+    background-color: #fff;
+    overflow: hidden;
+
+    .sectionTitle{
+        font-size: 25px;
+        font-weight: 500;
+        padding: .7em;
+    }
+
+    .itemsWrapper{
+        display: flex;
+        align-items: center;
+        padding: 2em 1em;
+
+        .kidsDayImg{
+            height: 350px;
+        }
+    }
+}

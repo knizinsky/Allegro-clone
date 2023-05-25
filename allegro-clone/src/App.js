@@ -3,6 +3,7 @@ import Coupon from "./Components/Coupon/Coupon";
 import Navigation from "./Components/Navigation/Navigation";
 import Categories from "./Components/Categories/Categories";
 import Slider from "./Components/Slider/Slider";
+import ItemsSection from "./Components/ItemsSection/ItemsSection";
 
 function App() {
 	return (
@@ -13,7 +14,8 @@ function App() {
 				<Categories/>
 			</header>
 			<main style={{height: '200vh'}}>
-				<Slider></Slider>
+				<Slider/>
+				<ItemsSection title="Znajdź idealny prezent"></ItemsSection>
 			</main>
 		</div>
 	);
