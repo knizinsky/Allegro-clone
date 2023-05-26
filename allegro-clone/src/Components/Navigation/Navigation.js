@@ -14,7 +14,7 @@ import polandIcon from "../../Img/Icons/poland-icon.svg";
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
-	const [cartOffset, setCartOffset] = useState()
+	const [cartOffset, setCartOffset] = useState();
 	const cartRef = useRef();
 	const cartIconRef = useRef();
 	const navRef = useRef();
@@ -22,14 +22,12 @@ const Navigation = () => {
 	const scrollHandler = () => {
 		if (window.scrollY > 110) {
 			setIsScrolled(true);
-
 		} else {
 			setIsScrolled(false);
 		}
-		
-		setCartOffset(navRef.current.offsetHeight + navRef.current.offsetTop)
+
+		setCartOffset(navRef.current.offsetHeight + navRef.current.offsetTop);
 	};
-	
 
 	useEffect(() => {
 		window.addEventListener("scroll", scrollHandler);
@@ -39,23 +37,21 @@ const Navigation = () => {
 		setIsHovered(true);
 	};
 
-	
-
 	const handlerMouseLeave = () => {
-		setTimeout(()=>{
-			if(cartRef.current != null){
+		setTimeout(() => {
+			if (cartRef.current != null) {
 				cartRef.current.addEventListener("mouseenter", () => {
-					setTimeout(()=>{
-					setIsHovered(true);
-					},500)
+					setTimeout(() => {
+						setIsHovered(true);
+					}, 500);
 				});
 				cartRef.current.addEventListener("mouseleave", () => {
-					setTimeout(()=>{
+					setTimeout(() => {
 						setIsHovered(false);
-					},500)
+					}, 500);
 				});
 			}
-		},1)
+		}, 1);
 	};
 
 	setTimeout(() => {
@@ -64,15 +60,19 @@ const Navigation = () => {
 				setIsHovered(true);
 			});
 			cartIconRef.current.addEventListener("mouseleave", () => {
-				setTimeout(()=>{
+				setTimeout(() => {
 					setIsHovered(false);
-				},500)
+				}, 500);
 			});
 		}
 	}, 1);
 
 	return (
-		<nav className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`} ref={navRef} id="nav">
+		<nav
+			className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`}
+			ref={navRef}
+			id="nav"
+		>
 			<div className={styles.logo}>
 				<a href="#home">
 					<img src={logo} alt="Allegro logo" />
@@ -113,14 +113,18 @@ const Navigation = () => {
 				<img src={heartIcon} alt="Ikonka serduszka" />
 				<img src={chatIcon} alt="Ikonka czatu" />
 				<img src={bellIcon} alt="Ikonka dzwoneczka" />
-				<img
-					src={cartIcon}
-					className={styles.cartIcon}
+				<a
+					href="#home"
 					onMouseEnter={handlerMouseEnter}
 					onMouseLeave={handlerMouseLeave}
 					ref={cartIconRef}
-					alt="Ikonka koszyka"
-				/>
+				>
+					<img
+						src={cartIcon}
+						className={styles.cartIcon}
+						alt="Ikonka koszyka"
+					/>
+				</a>
 				<CartModal
 					ref={cartRef}
 					isHovered={isHovered}
