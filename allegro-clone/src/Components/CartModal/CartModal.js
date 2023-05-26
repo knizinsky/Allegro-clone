@@ -8,7 +8,7 @@ const CartModal = React.forwardRef((props,ref) => {
   
   if(props.isHovered){
     return ReactDOM.createPortal(
-      <div ref={ref} className={styles.cartModalWrapper}>
+      <div ref={ref} className={styles.cartModalWrapper} style={{top: `${props.offsetHeight}px`}}>
         <header className={styles.cartHeader} >
           <h4>Twój koszyk</h4>
           <div>

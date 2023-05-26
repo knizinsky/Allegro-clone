@@ -14,16 +14,22 @@ import polandIcon from "../../Img/Icons/poland-icon.svg";
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
+	const [cartOffset, setCartOffset] = useState()
 	const cartRef = useRef();
 	const cartIconRef = useRef();
+	const navRef = useRef();
 
 	const scrollHandler = () => {
 		if (window.scrollY > 110) {
 			setIsScrolled(true);
+
 		} else {
 			setIsScrolled(false);
 		}
+		
+		setCartOffset(navRef.current.offsetHeight + navRef.current.offsetTop)
 	};
+	
 
 	useEffect(() => {
 		window.addEventListener("scroll", scrollHandler);
@@ -32,6 +38,8 @@ const Navigation = () => {
 	const handlerMouseEnter = () => {
 		setIsHovered(true);
 	};
+
+	
 
 	const handlerMouseLeave = () => {
 		setTimeout(()=>{
@@ -64,7 +72,7 @@ const Navigation = () => {
 	}, 1);
 
 	return (
-		<nav className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`}>
+		<nav className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`} ref={navRef} id="nav">
 			<div className={styles.logo}>
 				<a href="#home">
 					<img src={logo} alt="Allegro logo" />
@@ -117,6 +125,7 @@ const Navigation = () => {
 					ref={cartRef}
 					isHovered={isHovered}
 					setIsHovered={setIsHovered}
+					offsetHeight={cartOffset}
 				/>
 				<img src={userIcon} alt="Ikonka użytkownika" />
 			</div>

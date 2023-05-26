@@ -8,13 +8,11 @@ import ItemsSection from "./Components/ItemsSection/ItemsSection";
 function App() {
 	return (
 		<div className="App" id="home">
-			<Coupon/>
-			<header>
-				<Navigation/>
-				<Categories/>
-			</header>
-			<main style={{height: '200vh'}}>
-				<Slider/>
+			<Coupon />
+			<Navigation />
+			<Categories />
+			<main style={{ height: "200vh" }}>
+				<Slider />
 				<ItemsSection title="Znajdź idealny prezent"></ItemsSection>
 			</main>
 		</div>
