@@ -17,6 +17,8 @@
 			img {
 				max-height: 100%;
 			}
+
+			
 		}
 	}
 
@@ -58,6 +60,20 @@
 
 		img {
 			margin: 0 0.75em;
+		}
+
+		.totalItemsInCart{
+			position: absolute;
+			transform: translate(-145%, 95%);
+			background-color: #ff5a00;
+			height: 19px;
+			min-width: 19px;
+			text-align: center;
+			border-radius: 50%;
+			font-size: 13px;
+			line-height: 16px;
+			font-weight: 600;
+			color: #fff;
 		}
 	}
 }

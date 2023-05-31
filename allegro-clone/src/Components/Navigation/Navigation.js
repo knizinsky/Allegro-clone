@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
 import CartModal from "../CartModal/CartModal";
 
@@ -10,6 +10,7 @@ import bellIcon from "../../Img/Icons/bell-icon.svg";
 import heartIcon from "../../Img/Icons/heart-icon.svg";
 import chatIcon from "../../Img/Icons/chat-icon.svg";
 import polandIcon from "../../Img/Icons/poland-icon.svg";
+import { CartContext } from "../../Contexts/CartContext";
 
 const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,8 @@ const Navigation = () => {
 	const [isVisibleModal, setIsVisibleModal] = useState(false);
 	const cartIconRef = useRef();
 	const navRef = useRef();
+
+	const cartContext = useContext(CartContext);
 
 	let timeoutId;
 
@@ -61,6 +64,10 @@ const Navigation = () => {
 		  };
 
 	}, [isMouseoverOnCart, isMouseoverOnModal]);
+
+	useEffect(()=>{
+		cartContext.updateTotalItems(cartContext.currentTotalItems)
+	}, [cartContext.currentTotalItems])
 
 	return (
 		<nav
@@ -119,6 +126,7 @@ const Navigation = () => {
 						className={styles.cartIcon}
 						alt="Ikonka koszyka"
 					/>
+					{cartContext.currentTotalItems > 0 ? <span className={styles.totalItemsInCart}>{cartContext.currentTotalItems}</span> : ""}	
 				</a>
 				{isVisibleModal && <CartModal
 					offsetHeight={cartOffset}

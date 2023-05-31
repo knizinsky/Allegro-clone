@@ -22,7 +22,7 @@ const ItemCard = (props) => {
                 <li>{props.bought} osób kupiło</li>
             </ul>
         </div>
-        <Button value="Dodaj" style={{padding: '6px 8px'}}></Button>
+        <Button value="Dodaj" style={{padding: '6px 8px'}} price={props.price}></Button>
     </div>
   )
 }

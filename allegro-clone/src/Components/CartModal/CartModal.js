@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CartModal.module.scss";
+import { CartContext } from "../../Contexts/CartContext";
 
 const portalElement = document.getElementById("cart-modal");
 
 const CartModal = React.forwardRef((props, ref) => {
+	const cartContext = useContext(CartContext)
+
 	const [isMouseoverOnModal, setIsMouseoverOnModal] = useState(false);
 
 	const enterHandler = () => {
@@ -32,7 +35,7 @@ const CartModal = React.forwardRef((props, ref) => {
 				<h4>Twój koszyk</h4>
 				<div>
 					<span className={styles.cartValueText}>WARTOŚĆ KOSZYKA</span>
-					<span className={styles.cartValue}>69,69 zł</span>
+					<span className={styles.cartValue}>{cartContext.currentPrice.toFixed(2)} zł</span>
 				</div>
 			</header>
 			<div className={styles.cartItems}>
