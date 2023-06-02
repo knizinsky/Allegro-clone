@@ -6,6 +6,8 @@ import Slider from "./Components/Slider/Slider";
 import ItemsSection from "./Components/ItemsSection/ItemsSection";
 import { CartContext } from "./Contexts/CartContext";
 import { useState } from "react";
+import FooterMini from "./Components/FooterMini/FooterMini";
+import GroupServices from "./Components/GroupServices/GroupServices";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -35,10 +37,14 @@ function App() {
 				<Categories />
 				<main>
 					<Slider />
-					<ItemsSection title="Znajdź idealny prezent" specialImg={true}></ItemsSection>
-					<ItemsSection title="Mogą Cię zainteresować" specialImg={false}></ItemsSection>
+					<ItemsSection title="Znajdź idealny prezent" specialImg={true} section={1}></ItemsSection>
+					<ItemsSection title="Mogą Cię zainteresować" specialImg={false} section={2}></ItemsSection>
 				</main>
 			</CartContext.Provider>
+			<footer>
+				<FooterMini/>
+				<GroupServices/>
+			</footer>
 		</div>
 	);
 }

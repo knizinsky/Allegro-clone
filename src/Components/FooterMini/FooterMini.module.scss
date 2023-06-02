@@ -1,0 +1,13 @@
+.footerMiniWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.8em 3em;
+    color: #fff;
+    background-color: #3a4e58;
+
+    .statute{
+        color: #00a790;
+    }
+}

@@ -1,0 +1,28 @@
+.servicesWrapper {
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+
+	.titleWrapper {
+		margin: 2em 2em 1em;
+	}
+
+	.listWrapper {
+		width: 100%;
+		padding: 1em 2em 2em;
+
+		.servicesList {
+            width: 100%;
+			display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+			list-style: none;
+
+            li:nth-child(1){
+                margin: 0;
+            }
+		}
+	}
+}
