@@ -33,9 +33,10 @@ function App() {
 				<Coupon />
 				<Navigation />
 				<Categories />
-				<main style={{ height: "200vh" }}>
+				<main>
 					<Slider />
-					<ItemsSection title="Znajdź idealny prezent"></ItemsSection>
+					<ItemsSection title="Znajdź idealny prezent" specialImg={true}></ItemsSection>
+					<ItemsSection title="Mogą Cię zainteresować" specialImg={false}></ItemsSection>
 				</main>
 			</CartContext.Provider>
 		</div>
