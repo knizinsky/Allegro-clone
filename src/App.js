@@ -8,6 +8,7 @@ import { CartContext } from "./Contexts/CartContext";
 import { useState } from "react";
 import FooterMini from "./Components/FooterMini/FooterMini";
 import GroupServices from "./Components/GroupServices/GroupServices";
+import FooterLinks from "./Components/FooterLinks/FooterLinks";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -42,6 +43,7 @@ function App() {
 				</main>
 			</CartContext.Provider>
 			<footer>
+				<FooterLinks></FooterLinks>
 				<FooterMini/>
 				<GroupServices/>
 			</footer>

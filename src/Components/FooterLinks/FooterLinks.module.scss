@@ -1,0 +1,45 @@
+.footerLinksContainer {
+	display: flex;
+	background-color: #fff;
+	width: 100%;
+
+	.linksContainer {
+		width: 100%;
+		max-width: 1600px;
+		display: flex;
+        flex-wrap: wrap;
+
+		div {
+			padding: 1.5em;
+			width: 33%;
+
+			h3 {
+				font-size: 21px;
+				font-weight: 500;
+			}
+
+			ul {
+				list-style-type: none;
+
+				li {
+					margin: 1em 0;
+
+					a {
+						color: #000;
+					}
+
+					a:hover {
+						color: #54cab6;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width:1240px) {
+    .footerLinksContainer {
+        .linksContainer {
+            flex-wrap: nowrap;
+        }}
+}
