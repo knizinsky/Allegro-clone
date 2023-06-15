@@ -1,28 +1,28 @@
 .servicesWrapper {
-    width: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	background-color: #fff;
 
 	.titleWrapper {
-		margin: 2em 2em 1em;
+		margin: 2em 2em 0.7em;
 	}
 
 	.listWrapper {
 		width: 100%;
-		padding: 1em 2em 2em;
+		padding: 0.7em 2em 2em;
 
 		.servicesList {
-            width: 100%;
+			width: 100%;
 			display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
 			list-style: none;
 
-            li:nth-child(1){
-                margin: 0;
-            }
+			li:nth-child(1) {
+				margin: 0;
+			}
 		}
 	}
 }
