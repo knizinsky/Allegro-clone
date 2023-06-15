@@ -1,0 +1,81 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2em;
+	background-color: #fff;
+
+    h2{
+        font-size: 25px;
+        font-weight: 500;
+        padding: 0.7em 0.7em 0;
+    }
+
+	.boxContainer {
+		display: flex;
+        flex-direction: column;
+        margin: 2em 0;
+
+		div {
+			height: 128px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			margin: 1em;
+			padding: 2em;
+            text-align: center;
+
+			img {
+				max-width: 70%;
+                margin: 1em;
+			}
+		}
+
+		.smartBox {
+			background-color: #422779;
+			color: #fff;
+		}
+		.rrsoBox {
+			background-color: #144393;
+			color: #fff;
+		}
+		.guaranteeBox {
+			background-color: #92e390;
+			color: #000;
+		}
+		.coinsBox {
+			background-color: #fde798;
+			color: #000;
+		}
+		.choiceBox {
+			background-color: #ffe6c4;
+			color: #000;
+		}
+		.newBox {
+			background-color: #1a3b4f;
+			color: #fff;
+		}
+	}
+}
+
+@media (min-width: 992px){
+    .container {
+        .boxContainer {
+            flex-direction: row;
+            margin: 2em 0;
+    
+            div {
+                flex-basis: calc(100% / 6);
+                min-width: 128px;
+                height: 157px;
+                flex-direction: column;
+                margin: 0 1em;
+                padding: 2em;
+    
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
