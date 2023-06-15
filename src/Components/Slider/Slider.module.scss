@@ -1,6 +1,21 @@
-.sliderWrapper{
-    margin-top: 1em;
 
+.container{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-width: 1600px;
+
+    .sliderWrapper{
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-columns: 100%;
+        grid-auto-flow: column;
+        width: 100%;
+        max-width: 1600px;
+        margin-top: 1em;
+        transition: transform .4s;
+    }
+    
     .navDots{
         display: flex;
         justify-content: center;
@@ -18,3 +33,4 @@
         }
     }
 }
+
