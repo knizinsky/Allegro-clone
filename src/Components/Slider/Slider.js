@@ -36,6 +36,21 @@ const Slider = () => {
 				break;
 		}
 	};
+	
+	useEffect(()=>{
+		const sliderChange = setInterval(()=>{
+			if(sliderPosition === (sliderWidth * -3)){
+				setSliderPosition(0)
+			}else{
+				setSliderPosition(prevPosition => prevPosition - sliderWidth)
+				console.log(sliderPosition, (sliderWidth * -3))
+			}
+		},4000)
+
+		return () => {
+			clearInterval(sliderChange);
+		}
+	},[sliderWidth, sliderPosition])
 
 	return (
 		<>
@@ -88,7 +103,6 @@ const Slider = () => {
 					style={sliderPosition === 0 ? { backgroundColor: "#ff5a00" } : {}}
 					onClick={() => dotClickHandler(1)}
 				></div>
-				{console.log(sliderPosition)}
 				<div
 					className={styles.navDot}
 					style={
