@@ -26,7 +26,6 @@ const SliderBtn = (props) => {
 				((props.direction === "left" && props.sliderPosition <0) ? styles.leftBtn : "")
 			} ${((props.direction === "right" && props.sliderPosition >=(sliderWidth*-2)) ? styles.rightBtn : "")}`}
 		>
-			{console.log(props.sliderPosition, sliderWidth*-2)}
 			<img src={arrowhead} alt="Strzałka w prawo" />
 		</button>
 	);
