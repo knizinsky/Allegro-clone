@@ -43,7 +43,6 @@ const Slider = () => {
 				setSliderPosition(0)
 			}else{
 				setSliderPosition(prevPosition => prevPosition - sliderWidth)
-				console.log(sliderPosition, (sliderWidth * -3))
 			}
 		},4000)
 

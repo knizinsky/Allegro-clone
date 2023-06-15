@@ -47,6 +47,20 @@ const PRODUCTS_SECTION1 = [
 		title: "Szachy DREWNIANE TURNIEJOWE PRODUCENT DUŻE",
 		bought: "80",
 	},
+	{
+		id: "s1_6",
+		img: fisherToy,
+		price: "98,99",
+		title: "FISHER PRICE PRZYTULANKA WYDRA SZUMIĄCY USPOKAJACZ",
+		bought: "96",
+	},
+	{
+		id: "s1_7",
+		img: chessBoard,
+		price: "237,07",
+		title: "Szachy DREWNIANE TURNIEJOWE PRODUCENT DUŻE",
+		bought: "80",
+	},
 ];
 
 const PRODUCTS_SECTION2 = [
@@ -91,6 +105,20 @@ const PRODUCTS_SECTION2 = [
 		price: "71,99",
 		title: "BLENDER KIELICHOWY KUCHENNY MIKSER KOKTAJLE 1,5L",
 		bought: "219",
+	},
+	{
+		id: "s2_7",
+		img: keyboard,
+		price: "339,00",
+		title: "Klawiatura Sharkoon PureWriter TKL RGB Kailh Blue",
+		bought: "21",
+	},
+	{
+		id: "s2_8",
+		img: mouse,
+		price: "59,99",
+		title: "Mysz GENESIS Krypton 220",
+		bought: "8",
 	},
 ];
 

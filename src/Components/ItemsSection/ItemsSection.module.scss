@@ -2,18 +2,20 @@
     height: 600px;
     margin-top: 2em;
     background-color: #fff;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    position: relative;
 
     .sectionTitle{
         font-size: 25px;
         font-weight: 500;
-        padding: .7em;
+        padding: .7em .7em 0;
     }
 
     .itemsWrapper{
         display: flex;
         align-items: center;
         padding: 2em 1em;
+        transition: .2s;
 
         .kidsDayImg{
             height: 350px;
