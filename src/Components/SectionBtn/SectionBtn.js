@@ -5,9 +5,9 @@ import arrowhead from "../../Img/arrowhead.svg";
 const SectionBtn = (props) => {
     const clickHandler = () => {
 		if(props.direction === "left"){
-			props.setSectionOffset(prevOffset => prevOffset+390)
+			props.setSectionOffset(prevOffset => prevOffset+props.offset)
 		}else if(props.direction === "right"){
-			props.setSectionOffset(prevOffset => prevOffset-390)
+			props.setSectionOffset(prevOffset => prevOffset-props.offset)
 		}
 	}
 

@@ -10,6 +10,7 @@ import FooterMini from "./Components/FooterMini/FooterMini";
 import GroupServices from "./Components/GroupServices/GroupServices";
 import FooterLinks from "./Components/FooterLinks/FooterLinks";
 import StaticSection from "./Components/StaticSection/StaticSection";
+import InspirationSection from "./Components/InspirationSection/InspirationSection";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -42,6 +43,7 @@ function App() {
 					<StaticSection/>
 					<ItemsSection title="Znajdź idealny prezent" specialImg={true} section={1}></ItemsSection>
 					<ItemsSection title="Mogą Cię zainteresować" specialImg={false} section={2}></ItemsSection>
+					<InspirationSection/>
 				</main>
 			</CartContext.Provider>
 			<footer>

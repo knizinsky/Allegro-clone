@@ -11,8 +11,8 @@ const ItemsSection = (props) => {
 	return (
 		<div className={styles.sectionWrapper}>
 			<h2 className={styles.sectionTitle}>{props.title}</h2>
-			{sectionOffset<0 ? <SectionBtn direction="left" setSectionOffset={setSectionOffset}/> : ''}
-			{sectionOffset>-600 ? <SectionBtn direction="right" setSectionOffset={setSectionOffset}/> : ''}
+			{sectionOffset<0 ? <SectionBtn direction="left" setSectionOffset={setSectionOffset} offset={390}/> : ''}
+			{sectionOffset>-600 ? <SectionBtn direction="right" setSectionOffset={setSectionOffset} offset={390}/> : ''}
 
 			<div className={styles.itemsWrapper} style={{transform: `translateX(${sectionOffset}px)`}}>
 				{props.section === 1 && props.specialImg && (
