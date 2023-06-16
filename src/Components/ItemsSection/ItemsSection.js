@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./ItemsSection.module.scss";
 import kidsDay from "../../Img/kids-day.webp";
 import ItemCard from "../ItemCard/ItemCard";
-import { PRODUCTS_SECTION1, PRODUCTS_SECTION2 } from "../../data/data";
+import { PRODUCTS_SECTION1, PRODUCTS_SECTION2, PRODUCTS_SECTION3 } from "../../data/data";
 import SectionBtn from "../SectionBtn/SectionBtn";
 
 const ItemsSection = (props) => {
@@ -37,6 +37,19 @@ const ItemsSection = (props) => {
 					})}
 				{props.section === 2 &&
 					PRODUCTS_SECTION2.map((product) => {
+						return (
+							<ItemCard
+								key={product.id}
+								img={product.img}
+								price={product.price}
+								title={product.title}
+								bought={product.bought}
+								alt={product.title}
+							/>
+						);
+					})}
+				{props.section === 3 &&
+					PRODUCTS_SECTION3.map((product) => {
 						return (
 							<ItemCard
 								key={product.id}

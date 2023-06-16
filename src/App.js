@@ -44,6 +44,7 @@ function App() {
 					<ItemsSection title="Znajdź idealny prezent" specialImg={true} section={1}></ItemsSection>
 					<ItemsSection title="Mogą Cię zainteresować" specialImg={false} section={2}></ItemsSection>
 					<InspirationSection/>
+					<ItemsSection title="Najlepsze okazje dla Ciebie" specialImg={false} section={3}></ItemsSection>
 				</main>
 			</CartContext.Provider>
 			<footer>

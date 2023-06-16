@@ -22,6 +22,15 @@ import teamSports from '../Img/InspirationSection/team-sports.png'
 import travels from '../Img/InspirationSection/travels.png'
 import waterSports from '../Img/InspirationSection/water-sports.png'
 
+//section3
+import coffee from '../Img/Products/Section3/Kawa-Brazil-MONTE-CARMELO-1kg-100-ARABICA-SWIEZA.jpg'
+import joggers from '../Img/Products/Section3/MESKIE-SPODNIE-DRESOWE-JOGGERY-KOLORY-ox170-XL.jpg'
+import carMat from '../Img/Products/Section3/MATA-DO-SAMOCHODU-NA-SIEDZENIE-DLA-PSA-do-przewozu.jpg'
+import belt from '../Img/Products/Section3/PETERSON-pasek-meski-parciany-parciak-do-spodni.jpg'
+import tea from '../Img/Products/Section3/TWININGS-ZESTAW-HERBATA-CZARNA-LISCIASTA-400G.jpg'
+import juicer from '../Img/Products/Section3/Wyciskarka-Do-Cytrusow-Sokow-Owocow-Elektryczna.jpg'
+import coffee2 from '../Img/Products/Section3/Kawa-smakowa-Orzech-Laskowy-250g.jpg'
+
 const PRODUCTS_SECTION1 = [
 	{
 		id: "s1_1",
@@ -133,42 +142,95 @@ const PRODUCTS_SECTION2 = [
 	},
 ];
 
-const INSPIRATION_SECTION = [
+const PRODUCTS_SECTION3 = [
 	{
 		id: "s3_1",
+		img: tea,
+		price: "85,99",
+		title: "TWININGS ZESTAW HERBATA CZARNA LIŚCIASTA 400G",
+		bought: "7",
+	},
+	{
+		id: "s3_2",
+		img: belt,
+		price: "17,99",
+		title: "PETERSON pasek męski parciany parciak do spodni",
+		bought: "169",
+	},
+	{
+		id: "s3_3",
+		img: carMat,
+		price: "119,00",
+		title: "MATA DO SAMOCHODU NA SIEDZENIE DLA PSA do przewozu",
+		bought: "4",
+	},
+	{
+		id: "s3_4",
+		img: coffee,
+		price: "47,49",
+		title: "Kawa Brazil MONTE CARMELO 1kg 100% ARABICA ŚWIEŻA",
+		bought: "50",
+	},
+	{
+		id: "s3_5",
+		img: joggers,
+		price: "32,00",
+		title: "MĘSKIE SPODNIE DRESOWE JOGGERY KOLORY ox170 - XL",
+		bought: "18",
+	},
+	{
+		id: "s3_6",
+		img: juicer,
+		price: "160,99",
+		title: "Wyciskarka Do Cytrusów Soków Owoców Elektryczna",
+		bought: "26",
+	},
+	{
+		id: "s3_7",
+		img: coffee2,
+		price: "25,31",
+		title: "Kawa smakowa Orzech Laskowy 250g",
+		bought: "98",
+	},
+
+]
+
+const INSPIRATION_SECTION = [
+	{
+		id: "s4_1",
 		img:travels,
 		title:"Turystyka",
 	},
 	{
-		id: "s3_2",
+		id: "s4_2",
 		img:sports,
 		title:"Sporty towarzyskie",
 	},
 	{
-		id: "s3_3",
+		id: "s4_3",
 		img: running,
 		title:"Bieganie",
 	},
 	{
-		id: "s3_4",
+		id: "s4_4",
 		img:waterSports,
 		title:"Sporty wodne",
 	},
 	{
-		id: "s3_5",
+		id: "s4_5",
 		img: bikes,
 		title:"Rowery",
 	},
 	{
-		id: "s3_6",
+		id: "s4_6",
 		img:teamSports,
 		title:"Sporty drużynowe",
 	},
 	{
-		id: "s3_7",
+		id: "s4_7",
 		img:skating,
 		title:"Skating i slackline",
 	},
 ]
 
-export { PRODUCTS_SECTION1, PRODUCTS_SECTION2, INSPIRATION_SECTION };
+export { PRODUCTS_SECTION1, PRODUCTS_SECTION2,PRODUCTS_SECTION3, INSPIRATION_SECTION };
