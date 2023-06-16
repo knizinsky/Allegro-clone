@@ -16,6 +16,7 @@ import FooterCategories from "./Components/FooterCategories/FooterCategories";
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
 	const [currentPrice, setCurrentPrice] = useState(0)
+	const [currentItemsList, setCurrentItemsList] = useState([]);
 
 	const updateTotalItems = (currentValue) => {
 		setCurrentTotalItems(currentValue)
@@ -24,12 +25,18 @@ function App() {
 	const updatePrice = (currentValue) => {
 		setCurrentPrice(currentValue)
 	}
+
+	const updateItemsList = (currentItems) => {
+		setCurrentItemsList(prevItems => [...prevItems, currentItems])
+	}
 	
 	const cartContext = {
 		currentPrice,
 		currentTotalItems,
+		currentItemsList,
 		updateTotalItems,
-		updatePrice
+		updatePrice,
+		updateItemsList
 	}
 
 

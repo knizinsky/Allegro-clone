@@ -8,6 +8,12 @@ const Button = (props) => {
   const clickHandler = () => {
     cartContext.updatePrice(cartContext.currentPrice + parseFloat(props.price.replace(",", ".")))
     cartContext.updateTotalItems(cartContext.currentTotalItems + 1)
+    cartContext.updateItemsList({
+      key: props.key,
+      price: props.price,
+      img: props.img,
+      title: props.title
+    })
   }
 
   return (
