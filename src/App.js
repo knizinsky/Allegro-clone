@@ -11,6 +11,7 @@ import GroupServices from "./Components/GroupServices/GroupServices";
 import FooterLinks from "./Components/FooterLinks/FooterLinks";
 import StaticSection from "./Components/StaticSection/StaticSection";
 import InspirationSection from "./Components/InspirationSection/InspirationSection";
+import FooterCategories from "./Components/FooterCategories/FooterCategories";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -48,6 +49,7 @@ function App() {
 				</main>
 			</CartContext.Provider>
 			<footer>
+				<FooterCategories/>
 				<FooterLinks></FooterLinks>
 				<FooterMini/>
 				<GroupServices/>
