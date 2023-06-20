@@ -17,8 +17,6 @@
 			img {
 				max-height: 100%;
 			}
-
-			
 		}
 	}
 
@@ -62,7 +60,11 @@
 			margin: 0 0.75em;
 		}
 
-		.totalItemsInCart{
+		.myAllegro {
+			display: none;
+		}
+
+		.totalItemsInCart {
 			position: absolute;
 			transform: translate(-145%, 95%);
 			background-color: #ff5a00;
@@ -108,6 +110,51 @@
 			.searchBar {
 				.selectCategories {
 					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1115px) {
+	.navWrapper {
+		.iconsWrapper {
+			.loginIcon {
+				display: none;
+			}
+
+			.myAllegro {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				cursor: pointer;
+				padding: 0 0.3em;
+
+				.smartIcon {
+					position: absolute;
+					display: flex;
+					top: -12px;
+					left: 6px;
+					width: 50px;
+					max-width: 30%;
+					font-size: 8px;
+					scale: .9;
+					color: #656565;
+
+					img {
+						rotate: 0deg;
+						margin-left: 5px;
+					}
+				}
+
+				img {
+					margin-left: 0;
+					rotate: 90deg;
+				}
+
+				.rotateArrow{
+					rotate: 270deg;
 				}
 			}
 		}

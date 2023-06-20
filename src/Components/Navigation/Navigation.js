@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
 import CartModal from "../CartModal/CartModal";
+import AccountPopup from "../AccountPopup/AccountPopup";
 
 import styles from "./Navigation.module.scss";
 import logo from "../../Img/logo.svg";
@@ -10,6 +11,8 @@ import bellIcon from "../../Img/Icons/bell-icon.svg";
 import heartIcon from "../../Img/Icons/heart-icon.svg";
 import chatIcon from "../../Img/Icons/chat-icon.svg";
 import polandIcon from "../../Img/Icons/poland-icon.svg";
+import arrow from "../../Img/action-arrowhead.svg";
+import smartIcon from "../../Img/Icons/smart-icon.svg";
 import { CartContext } from "../../Contexts/CartContext";
 
 const Navigation = () => {
@@ -18,6 +21,8 @@ const Navigation = () => {
 	const [isMouseoverOnCart, setIsMouseoverOnCart] = useState(false);
 	const [isMouseoverOnModal, setIsMouseoverOnModal] = useState(false);
 	const [isVisibleModal, setIsVisibleModal] = useState(false);
+	const [isMyAllegroClicked, setisMyAllegroClicked] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState();
 	const cartIconRef = useRef();
 	const navRef = useRef();
 
@@ -36,13 +41,17 @@ const Navigation = () => {
 	};
 
 	const enterHandler = () => {
-		setIsMouseoverOnCart(true)
+		setIsMouseoverOnCart(true);
 		clearTimeout(timeoutId);
-	}
+	};
 
 	const leaveHandler = () => {
-		setIsMouseoverOnCart(false)
-	}
+		setIsMouseoverOnCart(false);
+	};
+
+	const accountClickHandler = () => {
+		setisMyAllegroClicked((prevState) => !prevState);
+	};
 
 	useEffect(() => {
 		window.addEventListener("scroll", scrollHandler);
@@ -51,23 +60,22 @@ const Navigation = () => {
 	useEffect(() => {
 		// eslint-disable-next-line
 		timeoutId = setTimeout(() => {
-			if (isMouseoverOnCart || isMouseoverOnModal){
-					setIsVisibleModal(true)
-					clearTimeout(timeoutId);
-				}else{
-					setIsVisibleModal(false)
-				}
+			if (isMouseoverOnCart || isMouseoverOnModal) {
+				setIsVisibleModal(true);
+				clearTimeout(timeoutId);
+			} else {
+				setIsVisibleModal(false);
+			}
 		}, 125);
 
 		return () => {
 			clearTimeout(timeoutId);
-		  };
-
+		};
 	}, [isMouseoverOnCart, isMouseoverOnModal]);
 
-	useEffect(()=>{
-		cartContext.updateTotalItems(cartContext.currentTotalItems)
-	}, [cartContext.currentTotalItems])
+	useEffect(() => {
+		cartContext.updateTotalItems(cartContext.currentTotalItems);
+	}, [cartContext.currentTotalItems]);
 
 	return (
 		<nav
@@ -126,14 +134,44 @@ const Navigation = () => {
 						className={styles.cartIcon}
 						alt="Ikonka koszyka"
 					/>
-					{cartContext.currentTotalItems > 0 ? <span className={styles.totalItemsInCart}>{cartContext.currentTotalItems}</span> : ""}	
+					{cartContext.currentTotalItems > 0 ? (
+						<span className={styles.totalItemsInCart}>
+							{cartContext.currentTotalItems}
+						</span>
+					) : (
+						""
+					)}
 				</a>
-				{isVisibleModal && <CartModal
-					offsetHeight={cartOffset}
-					isMouseOverOnModal={setIsMouseoverOnModal}
-					timeoutId={timeoutId}
-				/>}
-				<img src={userIcon} alt="Ikonka użytkownika" />
+				{isVisibleModal && (
+					<CartModal
+						offsetHeight={cartOffset}
+						isMouseOverOnModal={setIsMouseoverOnModal}
+						timeoutId={timeoutId}
+					/>
+				)}
+				<img
+					src={userIcon}
+					alt="Ikonka użytkownika"
+					className={styles.loginIcon}
+				/>
+				{isMyAllegroClicked && (
+					<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
+				)}
+				{console.log(cartOffset)}
+				<div className={styles.myAllegro} onClick={accountClickHandler}>
+					<div className={styles.smartIcon}>
+						<p>bądź</p>
+						<img src={smartIcon} alt="Ikonka Smart" />
+					</div>
+					<p>Moje Allegro</p>
+					<img
+						src={arrow}
+						alt="Strzałka"
+						className={
+							isMyAllegroClicked ? styles.rotateArrow : styles.actionArrow
+						}
+					/>
+				</div>
 			</div>
 		</nav>
 	);

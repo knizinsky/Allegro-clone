@@ -1,0 +1,33 @@
+.notLoggedInContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 15px;
+    align-items: center;
+    top: 142px;
+	width: 318px;
+    height: 415px;
+    background-color: #fff;
+    z-index: 500;
+    padding: 0 .7em;
+    border: 1px solid gray;
+    text-align: center;
+
+    img{
+        width: 100%;
+
+    }
+
+    h3{
+        font-size: 25px;
+        font-weight: 500;
+        margin: .4em;
+    }
+
+    .loginEncouragement{
+        color: #767676;
+        margin: .4em;
+        padding: 0 .2em;
+        font-size: 13px;
+    }
+}
