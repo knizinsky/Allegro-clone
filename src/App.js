@@ -17,6 +17,7 @@ import CategoriesLinks from "./Components/CategoriesLinks/CategoriesLinks";
 
 // Contexts
 import { CartContext } from "./Contexts/CartContext";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -79,7 +80,15 @@ function App() {
 						</CartContext.Provider>
 					}
 				/>
-				<Route path="/logowanie" element={<h2>Dupa jasia</h2>}/>
+				<Route
+					path="/logowanie"
+					element={
+						<>
+							<Navigation blank={true}/>
+							<LoginPage></LoginPage>
+						</>
+					}
+				/>
 			</Routes>
 
 			<footer>

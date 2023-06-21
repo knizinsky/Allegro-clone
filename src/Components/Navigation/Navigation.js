@@ -14,8 +14,9 @@ import polandIcon from "../../Img/Icons/poland-icon.svg";
 import arrow from "../../Img/action-arrowhead.svg";
 import smartIcon from "../../Img/Icons/smart-icon.svg";
 import { CartContext } from "../../Contexts/CartContext";
+import { Link } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = (props) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [cartOffset, setCartOffset] = useState();
 	const [isMouseoverOnCart, setIsMouseoverOnCart] = useState(false);
@@ -86,94 +87,102 @@ const Navigation = () => {
 			id="nav"
 		>
 			<div className={styles.logo}>
-				<a href="#home">
+				<Link to="/">
 					<img src={logo} alt="Allegro logo" />
-				</a>
+				</Link>
 			</div>
-			<div className={styles.searchBarWrapper}>
-				<div className={styles.searchBar}>
-					<form>
-						<input
-							type="text"
-							className={styles.searchInput}
-							placeholder="czego szukasz?"
-						/>
-						<select name="" id="" className={styles.selectCategories}>
-							<option value="wszystkie-kategorie">Wszystkie kategorie</option>
-							<optgroup label="Kategorie">
-								<option value="dom-i-ogrod">Dom i ogród</option>
-								<option value="dziecko">Dziecko</option>
-								<option value="elektronika">Elektronika</option>
-								<option value="firma-i-uslugi">Firma i usługi</option>
-								<option value="kolekcje-i-sztuka">Kolekcje i sztuka</option>
-								<option value="kultura-i-rozrywka">Kultura i rozrywka</option>
-								<option value="moda">Moda</option>
-								<option value="motoryzacja">Motoryzacja</option>
-								<option value="nieruchomosci">Nieruchomości</option>
-								<option value="sport-i-turystyka">Sport i turystyka</option>
-								<option value="supermarket">Supermarket</option>
-								<option value="uroda">Uroda</option>
-								<option value="zdrowie">Zdrowie</option>
-							</optgroup>
-						</select>
-						<Button value="SZUKAJ" type="submit"></Button>
-					</form>
-				</div>
-			</div>
-			<div className={styles.iconsWrapper}>
-				<img src={polandIcon} alt="Ikonka Polski" />
-				<img src={heartIcon} alt="Ikonka serduszka" />
-				<img src={chatIcon} alt="Ikonka czatu" />
-				<img src={bellIcon} alt="Ikonka dzwoneczka" />
-				<a
-					href="#home"
-					onMouseEnter={enterHandler}
-					onMouseLeave={leaveHandler}
-					ref={cartIconRef}
-				>
-					<img
-						src={cartIcon}
-						className={styles.cartIcon}
-						alt="Ikonka koszyka"
-					/>
-					{cartContext.currentTotalItems > 0 ? (
-						<span className={styles.totalItemsInCart}>
-							{cartContext.currentTotalItems}
-						</span>
-					) : (
-						""
-					)}
-				</a>
-				{isVisibleModal && (
-					<CartModal
-						offsetHeight={cartOffset}
-						isMouseOverOnModal={setIsMouseoverOnModal}
-						timeoutId={timeoutId}
-					/>
-				)}
-				<img
-					src={userIcon}
-					alt="Ikonka użytkownika"
-					className={styles.loginIcon}
-				/>
-				{isMyAllegroClicked && (
-					<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
-				)}
-				<div className={styles.myAllegro} onClick={accountClickHandler}>
-					<div className={styles.smartIcon}>
-						<p>bądź</p>
-						<img src={smartIcon} alt="Ikonka Smart" />
+			{props.blank !== true && (
+				<>
+					<div className={styles.searchBarWrapper}>
+						<div className={styles.searchBar}>
+							<form>
+								<input
+									type="text"
+									className={styles.searchInput}
+									placeholder="czego szukasz?"
+								/>
+								<select name="" id="" className={styles.selectCategories}>
+									<option value="wszystkie-kategorie">
+										Wszystkie kategorie
+									</option>
+									<optgroup label="Kategorie">
+										<option value="dom-i-ogrod">Dom i ogród</option>
+										<option value="dziecko">Dziecko</option>
+										<option value="elektronika">Elektronika</option>
+										<option value="firma-i-uslugi">Firma i usługi</option>
+										<option value="kolekcje-i-sztuka">Kolekcje i sztuka</option>
+										<option value="kultura-i-rozrywka">
+											Kultura i rozrywka
+										</option>
+										<option value="moda">Moda</option>
+										<option value="motoryzacja">Motoryzacja</option>
+										<option value="nieruchomosci">Nieruchomości</option>
+										<option value="sport-i-turystyka">Sport i turystyka</option>
+										<option value="supermarket">Supermarket</option>
+										<option value="uroda">Uroda</option>
+										<option value="zdrowie">Zdrowie</option>
+									</optgroup>
+								</select>
+								<Button value="SZUKAJ" type="submit"></Button>
+							</form>
+						</div>
 					</div>
-					<p>Moje Allegro</p>
-					<img
-						src={arrow}
-						alt="Strzałka"
-						className={
-							isMyAllegroClicked ? styles.rotateArrow : styles.actionArrow
-						}
-					/>
-				</div>
-			</div>
+					<div className={styles.iconsWrapper}>
+						<img src={polandIcon} alt="Ikonka Polski" />
+						<img src={heartIcon} alt="Ikonka serduszka" />
+						<img src={chatIcon} alt="Ikonka czatu" />
+						<img src={bellIcon} alt="Ikonka dzwoneczka" />
+						<a
+							href="#home"
+							onMouseEnter={enterHandler}
+							onMouseLeave={leaveHandler}
+							ref={cartIconRef}
+						>
+							<img
+								src={cartIcon}
+								className={styles.cartIcon}
+								alt="Ikonka koszyka"
+							/>
+							{cartContext.currentTotalItems > 0 ? (
+								<span className={styles.totalItemsInCart}>
+									{cartContext.currentTotalItems}
+								</span>
+							) : (
+								""
+							)}
+						</a>
+						{isVisibleModal && (
+							<CartModal
+								offsetHeight={cartOffset}
+								isMouseOverOnModal={setIsMouseoverOnModal}
+								timeoutId={timeoutId}
+							/>
+						)}
+						<img
+							src={userIcon}
+							alt="Ikonka użytkownika"
+							className={styles.loginIcon}
+						/>
+						{isMyAllegroClicked && (
+							<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
+						)}
+						<div className={styles.myAllegro} onClick={accountClickHandler}>
+							<div className={styles.smartIcon}>
+								<p>bądź</p>
+								<img src={smartIcon} alt="Ikonka Smart" />
+							</div>
+							<p>Moje Allegro</p>
+							<img
+								src={arrow}
+								alt="Strzałka"
+								className={
+									isMyAllegroClicked ? styles.rotateArrow : styles.actionArrow
+								}
+							/>
+						</div>
+					</div>
+				</>
+			)}
 		</nav>
 	);
 };
