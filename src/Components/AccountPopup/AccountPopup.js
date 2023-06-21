@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./AccountPopup.module.scss";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 import notLoggedInImg from "../../Img/not-logged-in.png";
 
@@ -23,10 +24,12 @@ const AccountPopup = (props) => {
 						Zaloguj się i zobacz swoje zakupy, obserwowane oferty i
 						powiadomienia. W Allegro jesteś u siebie!
 					</p>
-					<Button
-						value={"ZALOGUJ SIĘ"}
-						style={{ margin: "15px 0", width: "100%", padding: ".7em 0" }}
-					/>
+					<Link to='/logowanie'>
+						<Button
+							value={"ZALOGUJ SIĘ"}
+							style={{ margin: "15px 0", width: "100%", padding: ".7em 0" }}
+						/>
+					</Link>
 					<p>
 						Nie masz konta? <a href="#home">Zarejestruj się</a>
 					</p>

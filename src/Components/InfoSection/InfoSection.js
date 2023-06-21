@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./FooterLinks.module.scss";
+import styles from "./InfoSection.module.scss";
 
 const FooterLinks = () => {
 	return (

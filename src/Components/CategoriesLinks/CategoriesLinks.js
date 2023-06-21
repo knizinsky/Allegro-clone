@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./FooterCategories.module.scss";
+import styles from "./CategoriesLinks.module.scss";
 
 const FooterCategories = () => {
     const [isShowing, setIsShowing] = useState(false);

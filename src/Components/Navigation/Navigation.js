@@ -37,7 +37,9 @@ const Navigation = () => {
 			setIsScrolled(false);
 		}
 
-		setCartOffset(navRef.current.offsetHeight + navRef.current.offsetTop);
+		if (navRef.current) {
+			setCartOffset(navRef.current.offsetHeight + navRef.current.offsetTop);
+		}
 	};
 
 	const enterHandler = () => {
@@ -157,7 +159,6 @@ const Navigation = () => {
 				{isMyAllegroClicked && (
 					<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
 				)}
-				{console.log(cartOffset)}
 				<div className={styles.myAllegro} onClick={accountClickHandler}>
 					<div className={styles.smartIcon}>
 						<p>bądź</p>

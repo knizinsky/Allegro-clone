@@ -71,7 +71,6 @@ const CartModal = React.forwardRef((props, ref) => {
 							</div>
 						);
 					})}
-				{console.log(cartContext.currentItemsList)}
 			</div>
 		</div>,
 		portalElement
