@@ -1,5 +1,7 @@
 .container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     .loginContainer{
@@ -21,10 +23,21 @@
                 width: 100%;
                 font-size: 15px;
                 margin: .5em 0;
+                border: 1px solid #3b3b3b;
+            }
+
+            .wrongInput{
+                border-bottom: 3px solid #e0211b;
             }
 
             .inputContainer{
                 position: relative;
+
+                .errorText{
+                    margin: -.2em 0 .3em;
+                    color: #e0211b;
+                    font-size: 13px;
+                }
             }
 
             input:focus::placeholder{
@@ -94,6 +107,8 @@
 
     .continueWith{
         button{
+            display: flex;
+            align-items: center;
             width: 100%;
             background-color: #fff;
             border: 1px solid gray;
@@ -103,10 +118,35 @@
             margin: .4em 0;
             transition: background-color .3s;
             color: #656565;
+
+            img{
+                width: 24px;
+                margin: 0 1.2em;
+            }
+
+            span{
+                flex-grow: 1;
+            }
         }
 
         button:hover{
             background-color: #e7e7e7;
+        }
+    }
+    
+    .registerContainer{
+        max-width: 600px;
+        width: 100%;
+        padding: 1em;
+        margin-bottom: 1em;
+        background-color: #fff;
+
+        strong{
+            font-weight: 500;
+        }
+
+        span{
+            color: #008673;
         }
     }
 }

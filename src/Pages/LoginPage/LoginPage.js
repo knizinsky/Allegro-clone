@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LoginPage.module.scss";
 import Button from "../../Components/Button/Button";
 
+// img
+import googleIcon from '../../Img/Icons/google-icon.svg'
+import facebookIcon from '../../Img/Icons/facebook-icon.svg'
+import phoneIcon from '../../Img/Icons/phone-icon.svg'
+
 const LoginPage = () => {
+	const [showPassword, setShowPassword] = useState(false);
+	const [wrongLogin, setWrongLogin] = useState(false);
+    const [wrongPassword, setWrongPassword] = useState(false)
+
+	const togglePasswordHanlder = () => {
+		setShowPassword((prevState) => !prevState);
+	};
+
+	const inputBlurHandler = (event) => {
+		if(event.target.type === "text" && (event.target.value.trim() === "")){
+		    setWrongLogin(true);
+		}else if(event.target.type === "text" && (event.target.value.trim() !== "")){
+		    setWrongLogin(false);
+		}
+		
+		if(event.target.type === "password" && (event.target.value.trim() === "")){
+		    setWrongPassword(true);
+		}else if(event.target.type === "password" && (event.target.value.trim() !== "")){
+		    setWrongPassword(false);
+		}
+		
+	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.loginContainer}>
@@ -14,6 +42,8 @@ const LoginPage = () => {
 								type="text"
 								id="loginOrEmail"
 								placeholder="login lub e-mail"
+								onBlur={inputBlurHandler}
+                                className={wrongLogin && styles.wrongInput}
 							/>
 							<label
 								htmlFor="loginOrEmail"
@@ -21,15 +51,32 @@ const LoginPage = () => {
 							>
 								login lub e-mail
 							</label>
+							{wrongLogin && (
+								<p className={styles.errorText}>Podaj login lub e-mail</p>
+							)}
 						</div>
-						<div className={`${styles.passwordContainer} ${styles.inputContainer}`}>
-							<input type="password" id="password" placeholder="hasło" />
-							<label htmlFor="password" className={`${styles.passwordLabel} ${styles.floatingLabel}` }>
+						<div
+							className={`${styles.passwordContainer} ${styles.inputContainer}`}
+						>
+							<input
+								type={showPassword ? "text" : "password"}
+								id="password"
+								placeholder="hasło"
+								onBlur={inputBlurHandler}
+                                className={wrongPassword && styles.wrongInput}
+							/>
+							<label
+								htmlFor="password"
+								className={`${styles.passwordLabel} ${styles.floatingLabel}`}
+							>
 								hasło
 							</label>
 							<label htmlFor="password" className={styles.showPasswordLabel}>
-								<button>POKAŻ</button>
+								<button onClick={togglePasswordHanlder} type="button">
+									{showPassword ? "UKRYJ" : "POKAŻ"}
+								</button>
 							</label>
+							{wrongPassword && <p className={styles.errorText}>Podaj hasło</p>}
 						</div>
 						<div>
 							<Button
@@ -44,12 +91,16 @@ const LoginPage = () => {
 						<hr />
 					</div>
 					<div className={styles.continueWith}>
-						<button>KONTYNUUJ PRZEZ GOOGLE</button>
-						<button>KONTYNUUJ PRZEZ FACEBOOK</button>
-						<button>UŻYJ NUMERU TELEFONU</button>
+						<button><img src={googleIcon} alt="Ikonka Google" /><span>KONTYNUUJ PRZEZ GOOGLE</span></button>
+						<button><img src={facebookIcon} alt="Ikonka Facebooka" /><span>KONTYNUUJ PRZEZ FACEBOOK</span></button>
+						<button><img src={phoneIcon} alt="Ikonka telefonu" /><span>UŻYJ NUMERU TELEFONU</span></button>
 					</div>
 				</section>
 			</div>
+            <div className={styles.registerContainer}>
+                <strong>Nie masz konta?</strong>
+                <a href="" style={{letterSpacing: "1.5px", padding: "2em"}}><span>ZAŁÓŻ KONTO</span></a>
+            </div>
 		</div>
 	);
 };
