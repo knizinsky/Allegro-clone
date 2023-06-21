@@ -162,6 +162,7 @@ const Navigation = (props) => {
 							src={userIcon}
 							alt="Ikonka użytkownika"
 							className={styles.loginIcon}
+							onClick={accountClickHandler}
 						/>
 						{isMyAllegroClicked && (
 							<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
