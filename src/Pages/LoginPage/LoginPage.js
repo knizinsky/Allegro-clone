@@ -9,7 +9,7 @@ const LoginPage = () => {
 				<section className={styles.formSection}>
 					<h2>Zaloguj się</h2>
 					<form action="">
-						<div>
+						<div className={styles.inputContainer}>
 							<input
 								type="text"
 								id="loginOrEmail"
@@ -17,14 +17,14 @@ const LoginPage = () => {
 							/>
 							<label
 								htmlFor="loginOrEmail"
-								className={styles.loginOrEmailLabel}
+								className={`${styles.loginOrEmailLabel} ${styles.floatingLabel}`}
 							>
 								login lub e-mail
 							</label>
 						</div>
-						<div className={styles.passwordContainer}>
+						<div className={`${styles.passwordContainer} ${styles.inputContainer}`}>
 							<input type="password" id="password" placeholder="hasło" />
-							<label htmlFor="password" className={styles.passwordLabel}>
+							<label htmlFor="password" className={`${styles.passwordLabel} ${styles.floatingLabel}` }>
 								hasło
 							</label>
 							<label htmlFor="password" className={styles.showPasswordLabel}>

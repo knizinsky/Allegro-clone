@@ -23,15 +23,29 @@
                 margin: .5em 0;
             }
 
-            input:focus{
-                color: red;
+            .inputContainer{
+                position: relative;
             }
-    
-            .loginOrEmailLabel{
-                display: none;
+
+            input:focus::placeholder{
+                color: transparent;
             }
-            .passwordLabel{
-                display: none;
+
+            input:focus + .floatingLabel{
+                opacity: 1;
+                top: -3px;
+                z-index: 1;
+            }
+
+            .floatingLabel{
+                opacity: 1;
+                z-index: -5;
+                position: absolute;
+                top: 15px;
+                left: 8px;
+                transition: top .15s;
+                color: #656565;
+                background-color: #fff;
             }
     
             
@@ -88,6 +102,7 @@
             padding: .7em 0;
             margin: .4em 0;
             transition: background-color .3s;
+            color: #656565;
         }
 
         button:hover{
