@@ -6,6 +6,7 @@ import Button from "../../Components/Button/Button";
 import googleIcon from '../../Img/Icons/google-icon.svg'
 import facebookIcon from '../../Img/Icons/facebook-icon.svg'
 import phoneIcon from '../../Img/Icons/phone-icon.svg'
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -99,7 +100,7 @@ const LoginPage = () => {
 			</div>
             <div className={styles.registerContainer}>
                 <strong>Nie masz konta?</strong>
-                <a href="" style={{letterSpacing: "1.5px", padding: "2em"}}><span>ZAŁÓŻ KONTO</span></a>
+                <Link to="/rejestracja" style={{letterSpacing: "1.5px", padding: "2em"}}><span>ZAŁÓŻ KONTO</span></Link>
             </div>
 		</div>
 	);

@@ -18,6 +18,7 @@ import CategoriesLinks from "./Components/CategoriesLinks/CategoriesLinks";
 // Contexts
 import { CartContext } from "./Contexts/CartContext";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -86,6 +87,15 @@ function App() {
 						<>
 							<Navigation blank={true}/>
 							<LoginPage></LoginPage>
+						</>
+					}
+				/>
+				<Route
+					path="/rejestracja"
+					element={
+						<>
+							<Navigation blank={true}/>
+							<RegisterPage></RegisterPage>
 						</>
 					}
 				/>

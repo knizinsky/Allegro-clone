@@ -24,7 +24,7 @@ const AccountPopup = (props) => {
 						Zaloguj się i zobacz swoje zakupy, obserwowane oferty i
 						powiadomienia. W Allegro jesteś u siebie!
 					</p>
-					<Link to='/logowanie'>
+					<Link to='/logowanie' style={{width: '100%'}}>
 						<Button
 							value={"ZALOGUJ SIĘ"}
 							style={{ margin: "15px 0", width: "100%", padding: ".7em 0" }}
