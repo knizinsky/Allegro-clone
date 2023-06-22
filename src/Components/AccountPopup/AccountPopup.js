@@ -31,7 +31,7 @@ const AccountPopup = (props) => {
 						/>
 					</Link>
 					<p>
-						Nie masz konta? <a href="#home">Zarejestruj się</a>
+						Nie masz konta? <Link to="/rejestracja" style={{color: "#008673"}}>Zarejestruj się</Link>
 					</p>
 				</div>
 			)}
