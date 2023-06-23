@@ -1,72 +1,44 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: "AIzaSyDuHamz5lf2WQNKcfo5DUyAzKQVOZtFARo",
-	authDomain: "allegro-clone-2807d.firebaseapp.com",
-	projectId: "allegro-clone-2807d",
-	storageBucket: "allegro-clone-2807d.appspot.com",
-	messagingSenderId: "713981992848",
-	appId: "1:713981992848:web:a93f6bb716122b17571d15",
+	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-export const register = (auth, email, password, getError) => {
+export const register = (auth, email, password, getError, navigate) => {
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
 			console.log(user);
-			// ...
+			navigate("/");
+		})
+		.catch((error) => {
+			const errorCode = error.code;
+
+			getError(errorCode);
+		});
+};
+
+export const login = (auth, email, password, getError) => {
+	signInWithEmailAndPassword(auth, email, password)
+		.then((userCredential) => {
+			const user = userCredential.user;
+			console.log(user);
 		})
 		.catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-
-            getError(errorCode)
-
-			// if (errorCode == "auth/weak-password") {
-			// 	alert("The password is too weak.");
-			// } else if (errorCode == "auth/email-already-in-use") {
-			// 	alert("There already exists an account with the given email address.");
-			// } else if (errorCode == "auth/invalid-email") {
-			// 	alert("Email address is not valid.");
-			// } else if (errorCode == "auth/operation-not-allowed") {
-			// 	alert("email/password accounts are not enabled.");
-			// } else {
-			// 	alert(errorCode);
-			// }
+			getError(errorCode);
 		});
 };
-
-// export const register = async (email, password) => {
-// 	try {
-// 		const userCredential = await app
-// 			.auth()
-// 			.createUserWithEmailAndPassword(email, password);
-// 		return userCredential.user;
-// 	} catch (error) {
-// 		console.error("Error during registration:", error);
-// 		throw error;
-
-// 	}
-// };
-
-// export const login = async (email, password) => {
-// 	try {
-// 		const userCredential = await app
-// 			.auth()
-// 			.signInWithEmailAndPassword(email, password);
-// 		return userCredential.user;
-// 	} catch (error) {
-// 		console.error("Error during login:", error);
-// 		throw error;
-// 	}
-// };

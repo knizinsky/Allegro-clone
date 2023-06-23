@@ -3,33 +3,62 @@ import styles from "./LoginPage.module.scss";
 import Button from "../../Components/Button/Button";
 
 // img
-import googleIcon from '../../Img/Icons/google-icon.svg'
-import facebookIcon from '../../Img/Icons/facebook-icon.svg'
-import phoneIcon from '../../Img/Icons/phone-icon.svg'
+import googleIcon from "../../Img/Icons/google-icon.svg";
+import facebookIcon from "../../Img/Icons/facebook-icon.svg";
+import phoneIcon from "../../Img/Icons/phone-icon.svg";
 import { Link } from "react-router-dom";
+import { app, login } from "../../firebase";
+import { getAuth } from "firebase/auth";
 
 const LoginPage = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [wrongLogin, setWrongLogin] = useState(false);
-    const [wrongPassword, setWrongPassword] = useState(false)
+	const [wrongPassword, setWrongPassword] = useState(false);
+	const [formError, setFormError] = useState(false);
 
 	const togglePasswordHanlder = () => {
 		setShowPassword((prevState) => !prevState);
 	};
 
 	const inputBlurHandler = (event) => {
-		if(event.target.type === "text" && (event.target.value.trim() === "")){
-		    setWrongLogin(true);
-		}else if(event.target.type === "text" && (event.target.value.trim() !== "")){
-		    setWrongLogin(false);
+		setFormError(false);
+
+		if (event.target.type === "text" && event.target.value.trim() === "") {
+			setWrongLogin(true);
+		} else if (
+			event.target.type === "text" &&
+			event.target.value.trim() !== ""
+		) {
+			setWrongLogin(false);
 		}
-		
-		if(event.target.type === "password" && (event.target.value.trim() === "")){
-		    setWrongPassword(true);
-		}else if(event.target.type === "password" && (event.target.value.trim() !== "")){
-		    setWrongPassword(false);
+
+		if (event.target.type === "password" && event.target.value.trim() === "") {
+			setWrongPassword(true);
+		} else if (
+			event.target.type === "password" &&
+			event.target.value.trim() !== ""
+		) {
+			setWrongPassword(false);
 		}
-		
+	};
+
+	const loginHanlder = (event) => {
+		event.preventDefault();
+
+		const email = event.target.elements.email.value;
+		const password = event.target.elements.password.value;
+
+		const auth = getAuth(app);
+
+		const getError = (error) => {
+			if (error) {
+				setFormError(true);
+			} else {
+				setFormError(false);
+			}
+		};
+
+		login(auth, email, password, getError);
 	};
 
 	return (
@@ -37,24 +66,22 @@ const LoginPage = () => {
 			<div className={styles.loginContainer}>
 				<section className={styles.formSection}>
 					<h2>Zaloguj się</h2>
-					<form action="">
+					<form onSubmit={loginHanlder}>
 						<div className={styles.inputContainer}>
 							<input
 								type="text"
-								id="loginOrEmail"
-								placeholder="login lub e-mail"
+								id="email"
+								placeholder="e-mail"
 								onBlur={inputBlurHandler}
-                                className={wrongLogin && styles.wrongInput}
+								className={wrongLogin || formError ? styles.wrongInput : ""}
 							/>
 							<label
-								htmlFor="loginOrEmail"
+								htmlFor="email"
 								className={`${styles.loginOrEmailLabel} ${styles.floatingLabel}`}
 							>
-								login lub e-mail
+								e-mail
 							</label>
-							{wrongLogin && (
-								<p className={styles.errorText}>Podaj login lub e-mail</p>
-							)}
+							{wrongLogin && <p className={styles.errorText}>Podaj e-mail</p>}
 						</div>
 						<div
 							className={`${styles.passwordContainer} ${styles.inputContainer}`}
@@ -64,7 +91,7 @@ const LoginPage = () => {
 								id="password"
 								placeholder="hasło"
 								onBlur={inputBlurHandler}
-                                className={wrongPassword && styles.wrongInput}
+								className={wrongLogin || formError ? styles.wrongInput : ""}
 							/>
 							<label
 								htmlFor="password"
@@ -78,11 +105,16 @@ const LoginPage = () => {
 								</button>
 							</label>
 							{wrongPassword && <p className={styles.errorText}>Podaj hasło</p>}
+							{formError && (
+								<p className={styles.errorText}>
+									Login, e-mail lub hasło są nieprawidłowe
+								</p>
+							)}
 						</div>
 						<div>
 							<Button
 								value="ZALOGUJ SIĘ"
-								style={{ width: "100%", padding: ".7em 0" }}
+								style={{ width: "100%", padding: ".7em 0", margin: ".6em 0"}}
 							/>
 						</div>
 					</form>
@@ -92,16 +124,30 @@ const LoginPage = () => {
 						<hr />
 					</div>
 					<div className={styles.continueWith}>
-						<button><img src={googleIcon} alt="Ikonka Google" /><span>KONTYNUUJ PRZEZ GOOGLE</span></button>
-						<button><img src={facebookIcon} alt="Ikonka Facebooka" /><span>KONTYNUUJ PRZEZ FACEBOOK</span></button>
-						<button><img src={phoneIcon} alt="Ikonka telefonu" /><span>UŻYJ NUMERU TELEFONU</span></button>
+						<button>
+							<img src={googleIcon} alt="Ikonka Google" />
+							<span>KONTYNUUJ PRZEZ GOOGLE</span>
+						</button>
+						<button>
+							<img src={facebookIcon} alt="Ikonka Facebooka" />
+							<span>KONTYNUUJ PRZEZ FACEBOOK</span>
+						</button>
+						<button>
+							<img src={phoneIcon} alt="Ikonka telefonu" />
+							<span>UŻYJ NUMERU TELEFONU</span>
+						</button>
 					</div>
 				</section>
 			</div>
-            <div className={styles.registerContainer}>
-                <strong>Nie masz konta?</strong>
-                <Link to="/rejestracja" style={{letterSpacing: "1.5px", padding: "2em"}}><span>ZAŁÓŻ KONTO</span></Link>
-            </div>
+			<div className={styles.registerContainer}>
+				<strong>Nie masz konta?</strong>
+				<Link
+					to="/rejestracja"
+					style={{ letterSpacing: "1.5px", padding: "2em" }}
+				>
+					<span>ZAŁÓŻ KONTO</span>
+				</Link>
+			</div>
 		</div>
 	);
 };

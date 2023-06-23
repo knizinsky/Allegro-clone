@@ -106,6 +106,9 @@
 						font-size: 13px;
 					}
 				}
+				.inputContainer:first-of-type {
+					margin-top: .9em;
+				}
 
 				.dataInput:focus::placeholder {
 					color: transparent;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./RegisterPage.module.scss";
 import Button from "../../Components/Button/Button";
-// import { register, app } from "../../firebase";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { app, register } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +16,8 @@ const RegisterPage = () => {
 		"Wpisz poprawne hasło"
 	);
 	const [selectedBtn, setSelectedBtn] = useState("underEighteenBtn");
+	const navigate = useNavigate();
+
 
 	const togglePasswordHanlder = () => {
 		setShowPassword((prevState) => !prevState);
@@ -33,7 +35,6 @@ const RegisterPage = () => {
 
 		if (event.target.type === "password") {
 			const password = event.target.value.trim();
-			let message = "";
 
 			if (password.length < 8) {
 				setWrongPassword(true);
@@ -80,15 +81,15 @@ const RegisterPage = () => {
 
 			//email error handling
 
-			if (error == "auth/email-already-in-use") {
+			if (error === "auth/email-already-in-use") {
 				setWrongLoginMessage("Ten adres e-mail jest już zajęty.");
-			} else if (error == "auth/invalid-email") {
+			} else if (error === "auth/invalid-email") {
 				setWrongLoginMessage("Nieprawidłowy adres e-mail.");
-			} else if (error == "auth/operation-not-allowed") {
+			} else if (error === "auth/operation-not-allowed") {
 				setWrongLoginMessage("Rejestracja z użyciem e-mail'u jest wyłączona.");
-			} else if (error == "auth/missing-email") {
+			} else if (error === "auth/missing-email") {
 				setWrongLoginMessage("Wpisz e-mail.");
-			} else if (error == "auth/weak-password") {
+			} else if (error === "auth/weak-password") {
 				setWrongPasswordMessage("Hasło jest zbyt słabe.");
 			} else if (error === "auth/invalid-password") {
 				setWrongPasswordMessage("Podane hasło jest nieprawidłowe.");
@@ -97,12 +98,8 @@ const RegisterPage = () => {
 			}
 		};
 
-		// if (email.trim() === "" && password.trim() === "") {
-		// 	
-		// } else {
 			const auth = getAuth(app);
-			register(auth, email, password, getError);
-		// }
+			register(auth, email, password, getError, navigate);
 	};
 
 	return (
