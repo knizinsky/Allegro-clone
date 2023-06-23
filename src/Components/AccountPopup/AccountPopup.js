@@ -5,22 +5,49 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 import notLoggedInImg from "../../Img/not-logged-in.png";
+import accountIcon from "../../Img/Icons/account.png";
+import { getAuth, signOut } from "firebase/auth";
+import { app } from "../../firebase";
 
 const portalElement = document.getElementById("login-modal");
 
 const AccountPopup = (props) => {
+	const signOutHandler = () => {
+		const auth = getAuth(app);
+		signOut(auth)
+			.then(() => {
+				props.setIsLoggedIn(false)
+			})
+			.catch((error) => {
+				console.log("An error happened")
+			});
+	};
+
 	return ReactDOM.createPortal(
 		<>
 			{props.isLoggedIn === true ? (
 				<div
-					className={styles.notLoggedInContainer}
+					className={styles.container}
 					style={{ top: `${props.offsetHeight}px` }}
 				>
-					<p>Witaj</p>
+					<div className={styles.currentAccountContainer}>
+						<div className={styles.userWelcomeContainer}>
+							<p className={styles.welcome}>Witaj użytkowniku!</p>
+							<p>{props.currentUserEmail}</p>
+						</div>
+						<img src={accountIcon} className={styles.accountImg} alt='Ikonka użytkownika' />
+					</div>
+					<Link to="/moje-konto" className={styles.myAccountLink}>
+						MOJE KONTO
+					</Link>
+					<div className={styles.blankSpace}></div>
+					<Link to="/" onClick={signOutHandler} className={styles.myAccountLink}>
+						WYLOGUJ SIĘ
+					</Link>
 				</div>
 			) : (
 				<div
-					className={styles.notLoggedInContainer}
+					className={styles.container}
 					style={{ top: `${props.offsetHeight}px` }}
 				>
 					<img src={notLoggedInImg} alt="Witaj w allegro!" />

@@ -9,12 +9,16 @@ import phoneIcon from "../../Img/Icons/phone-icon.svg";
 import { Link } from "react-router-dom";
 import { app, login } from "../../firebase";
 import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 
 const LoginPage = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [wrongLogin, setWrongLogin] = useState(false);
 	const [wrongPassword, setWrongPassword] = useState(false);
 	const [formError, setFormError] = useState(false);
+
+	const navigate = useNavigate();
 
 	const togglePasswordHanlder = () => {
 		setShowPassword((prevState) => !prevState);
@@ -58,9 +62,8 @@ const LoginPage = () => {
 			}
 		};
 
-		login(auth, email, password, getError);
+		login(auth, email, password, getError, navigate);
 		const user = auth.currentUser;
-		// console.log(user.email)
 	};
 
 	return (

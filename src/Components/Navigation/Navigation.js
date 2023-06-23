@@ -26,7 +26,7 @@ const Navigation = (props) => {
 	const [isVisibleModal, setIsVisibleModal] = useState(false);
 	const [isMyAllegroClicked, setisMyAllegroClicked] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState();
-	const [currentUser, setCurrentUser] = useState(null)
+	const [currentUserEmail, setCurrentUserEmail] = useState(null);
 	const cartIconRef = useRef();
 	const navRef = useRef();
 
@@ -81,18 +81,20 @@ const Navigation = (props) => {
 
 	useEffect(() => {
 		cartContext.updateTotalItems(cartContext.currentTotalItems);
-	}, [cartContext.currentTotalItems]);
+	}, [cartContext.currentTotalItems, cartContext]);
 
 	useEffect(() => {
 		const auth = getAuth(app);
 
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				// setIsLoggedIn(true)
-				setCurrentUser(user.email)
-			}}) 
-	}, []);
-	
+				setIsLoggedIn(true);
+				setCurrentUserEmail(user.email);
+			} else {
+				setCurrentUserEmail(null);
+			}
+		});
+	}, [isLoggedIn]);
 
 	return (
 		<nav
@@ -179,14 +181,21 @@ const Navigation = (props) => {
 							onClick={accountClickHandler}
 						/>
 						{isMyAllegroClicked && (
-							<AccountPopup isLoggedIn={isLoggedIn} offsetHeight={cartOffset} />
+							<AccountPopup
+								isLoggedIn={isLoggedIn}
+								offsetHeight={cartOffset}
+								currentUserEmail={currentUserEmail}
+								setIsLoggedIn={setIsLoggedIn}
+							/>
 						)}
 						<div className={styles.myAllegro} onClick={accountClickHandler}>
 							<div className={styles.smartIcon}>
 								<p>bądź</p>
 								<img src={smartIcon} alt="Ikonka Smart" />
 							</div>
-							<p className={styles.currentUserName}>{currentUser}</p>
+							<p className={styles.currentUserName}>
+								{currentUserEmail ? currentUserEmail : "Moje Allegro"}
+							</p>
 							<img
 								src={arrow}
 								alt="Strzałka"

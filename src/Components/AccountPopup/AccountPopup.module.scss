@@ -1,4 +1,4 @@
-.notLoggedInContainer {
+.container {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,47 @@
     padding: 0 .7em;
     border: 1px solid gray;
     text-align: center;
+
+    .currentAccountContainer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .8em;
+        height: 100px;
+        width: 100%;
+        border-bottom: 1px solid #dddddd;
+
+        .userWelcomeContainer{
+            .welcome{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: .4em;
+            }
+        }
+
+        .accountImg{
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .myAccountLink{
+        color: #00a790;
+        padding: .6em;
+        width: 100%;
+        font-size: 16.5px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .myAccountLink:hover{
+        color: #1dccb5;
+    }
+
+    .blankSpace{
+        width: calc(100% + 1.4em);
+        height: 10px;
+        background-color: #eceff1;
+    }
 
     img{
         width: 100%;

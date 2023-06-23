@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.module.scss";
 import { Route, Routes } from "react-router-dom";
 
@@ -19,10 +19,6 @@ import CategoriesLinks from "./Components/CategoriesLinks/CategoriesLinks";
 import { CartContext } from "./Contexts/CartContext";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
-
-// firebase
-import { app } from "./firebase";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
 	const [currentTotalItems, setCurrentTotalItems] = useState(0);
@@ -49,8 +45,6 @@ function App() {
 		updatePrice,
 		updateItemsList,
 	};
-
-	
 
 	return (
 		<div className="App" id="home">
@@ -83,7 +77,7 @@ function App() {
 								></ItemsSection>
 							</main>
 							<CategoriesLinks />
-							<InfoSection></InfoSection>
+							<InfoSection />
 						</CartContext.Provider>
 					}
 				/>
@@ -92,7 +86,7 @@ function App() {
 					element={
 						<>
 							<Navigation blank={true} />
-							<LoginPage></LoginPage>
+							<LoginPage />
 						</>
 					}
 				/>
@@ -101,7 +95,7 @@ function App() {
 					element={
 						<>
 							<Navigation blank={true} />
-							<RegisterPage></RegisterPage>
+							<RegisterPage />
 						</>
 					}
 				/>
