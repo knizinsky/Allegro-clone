@@ -15,6 +15,8 @@ import arrow from "../../Img/action-arrowhead.svg";
 import smartIcon from "../../Img/Icons/smart-icon.svg";
 import { CartContext } from "../../Contexts/CartContext";
 import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { app } from "../../firebase";
 
 const Navigation = (props) => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +26,7 @@ const Navigation = (props) => {
 	const [isVisibleModal, setIsVisibleModal] = useState(false);
 	const [isMyAllegroClicked, setisMyAllegroClicked] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState();
+	const [currentUser, setCurrentUser] = useState(null)
 	const cartIconRef = useRef();
 	const navRef = useRef();
 
@@ -79,6 +82,17 @@ const Navigation = (props) => {
 	useEffect(() => {
 		cartContext.updateTotalItems(cartContext.currentTotalItems);
 	}, [cartContext.currentTotalItems]);
+
+	useEffect(() => {
+		const auth = getAuth(app);
+
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				// setIsLoggedIn(true)
+				setCurrentUser(user.email)
+			}}) 
+	}, []);
+	
 
 	return (
 		<nav
@@ -172,7 +186,7 @@ const Navigation = (props) => {
 								<p>bądź</p>
 								<img src={smartIcon} alt="Ikonka Smart" />
 							</div>
-							<p>Moje Allegro</p>
+							<p className={styles.currentUserName}>{currentUser}</p>
 							<img
 								src={arrow}
 								alt="Strzałka"

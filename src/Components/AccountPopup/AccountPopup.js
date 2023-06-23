@@ -12,7 +12,12 @@ const AccountPopup = (props) => {
 	return ReactDOM.createPortal(
 		<>
 			{props.isLoggedIn === true ? (
-				<p>Witaj</p>
+				<div
+					className={styles.notLoggedInContainer}
+					style={{ top: `${props.offsetHeight}px` }}
+				>
+					<p>Witaj</p>
+				</div>
 			) : (
 				<div
 					className={styles.notLoggedInContainer}
@@ -24,14 +29,17 @@ const AccountPopup = (props) => {
 						Zaloguj się i zobacz swoje zakupy, obserwowane oferty i
 						powiadomienia. W Allegro jesteś u siebie!
 					</p>
-					<Link to='/logowanie' style={{width: '100%'}}>
+					<Link to="/logowanie" style={{ width: "100%" }}>
 						<Button
 							value={"ZALOGUJ SIĘ"}
 							style={{ margin: "15px 0", width: "100%", padding: ".7em 0" }}
 						/>
 					</Link>
 					<p>
-						Nie masz konta? <Link to="/rejestracja" style={{color: "#008673"}}>Zarejestruj się</Link>
+						Nie masz konta?{" "}
+						<Link to="/rejestracja" style={{ color: "#008673" }}>
+							Zarejestruj się
+						</Link>
 					</p>
 				</div>
 			)}

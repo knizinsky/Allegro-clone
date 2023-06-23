@@ -59,6 +59,8 @@ const LoginPage = () => {
 		};
 
 		login(auth, email, password, getError);
+		const user = auth.currentUser;
+		// console.log(user.email)
 	};
 
 	return (

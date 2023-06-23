@@ -152,6 +152,12 @@
 					}
 				}
 
+				.currentUserName{
+					max-width: 100px;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+
 				img {
 					margin-left: 0;
 					rotate: 90deg;

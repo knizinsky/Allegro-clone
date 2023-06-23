@@ -18,14 +18,12 @@ export const app = initializeApp(firebaseConfig);
 export const register = (auth, email, password, getError, navigate) => {
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
-			// Signed in
 			const user = userCredential.user;
 			console.log(user);
 			navigate("/");
 		})
 		.catch((error) => {
 			const errorCode = error.code;
-
 			getError(errorCode);
 		});
 };
@@ -38,7 +36,6 @@ export const login = (auth, email, password, getError) => {
 		})
 		.catch((error) => {
 			const errorCode = error.code;
-			const errorMessage = error.message;
 			getError(errorCode);
 		});
 };
