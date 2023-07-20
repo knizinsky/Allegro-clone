@@ -3,87 +3,95 @@
 	background-color: #fff;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	padding: 1em;
 	border-bottom: 1px solid #dadada;
 
-	.logo {
-		height: 28px;
+	.navWrapperContainer {
+		width: 100%;
+		max-width: 1400px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
-		a {
-			display: block;
-			height: 100%;
+		.logo {
+			height: 28px;
+
+			a {
+				display: block;
+				height: 100%;
+
+				img {
+					max-height: 100%;
+				}
+			}
+		}
+
+		.searchBarWrapper {
+			order: 1;
+			width: 100%;
+			margin-top: 1em;
+
+			.searchBar {
+				form {
+					display: flex;
+				}
+
+				.searchInput {
+					flex-grow: 1;
+					padding: 0.7em;
+					border-radius: 0;
+					border-width: 1px;
+					border-style: solid;
+				}
+
+				.searchInput:focus,
+				.selectCategories:focus {
+					outline: none;
+				}
+
+				.selectCategories {
+					display: none;
+					padding: 0.3em;
+					border-radius: 0;
+					border-left: 0;
+				}
+
+				.searchBtn {
+					height: auto;
+				}
+			}
+		}
+
+		.iconsWrapper {
+			display: flex;
+			align-items: center;
 
 			img {
-				max-height: 100%;
-			}
-		}
-	}
-
-	.searchBarWrapper {
-		order: 1;
-		width: 100%;
-		margin-top: 1em;
-
-		.searchBar {
-			form {
-				display: flex;
+				margin: 0 0.75em;
 			}
 
-			.searchInput {
-				flex-grow: 1;
-				padding: 0.7em;
-				border-radius: 0;
-				border-width: 1px;
-				border-style: solid;
+			.loginIcon {
+				cursor: pointer;
 			}
 
-			.searchInput:focus,
-			.selectCategories:focus {
-				outline: none;
-			}
-
-			.selectCategories {
+			.myAllegro {
 				display: none;
-				padding: 0.3em;
-				border-radius: 0;
-				border-left: 0;
 			}
 
-			.searchBtn{
-				height: auto;
+			.totalItemsInCart {
+				position: absolute;
+				transform: translate(-145%, 95%);
+				background-color: #ff5a00;
+				height: 19px;
+				min-width: 19px;
+				text-align: center;
+				border-radius: 50%;
+				font-size: 13px;
+				line-height: 19px;
+				font-weight: 500;
+				color: #fff;
 			}
-		}
-	}
-
-	.iconsWrapper {
-		display: flex;
-		align-items: center;
-
-		img {
-			margin: 0 0.75em;
-		}
-
-		.loginIcon{
-			cursor: pointer;
-		}
-
-		.myAllegro {
-			display: none;
-		}
-
-		.totalItemsInCart {
-			position: absolute;
-			transform: translate(-145%, 95%);
-			background-color: #ff5a00;
-			height: 19px;
-			min-width: 19px;
-			text-align: center;
-			border-radius: 50%;
-			font-size: 13px;
-			line-height: 19px;
-			font-weight: 500;
-			color: #fff;
 		}
 	}
 }
@@ -96,28 +104,32 @@
 
 @media (min-width: 544px) {
 	.navWrapper {
-		.logo {
-			height: 33px;
+		.navWrapperContainer {
+			.logo {
+				height: 33px;
+			}
 		}
 	}
 }
 
 @media (min-width: 992px) {
 	.navWrapper {
-		align-items: center;
+		.navWrapperContainer {
+			align-items: center;
 
-		.logo {
-			height: 43px;
-		}
+			.logo {
+				height: 43px;
+			}
 
-		.searchBarWrapper {
-			order: 0;
-			width: 50%;
-			margin-top: 0;
+			.searchBarWrapper {
+				order: 0;
+				width: 50%;
+				margin-top: 0;
 
-			.searchBar {
-				.selectCategories {
-					display: inline-block;
+				.searchBar {
+					.selectCategories {
+						display: inline-block;
+					}
 				}
 			}
 		}
@@ -126,50 +138,52 @@
 
 @media (min-width: 1115px) {
 	.navWrapper {
-		.iconsWrapper {
-			.loginIcon {
-				display: none;
-			}
+		.navWrapperContainer {
+			.iconsWrapper {
+				.loginIcon {
+					display: none;
+				}
 
-			.myAllegro {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				position: relative;
-				cursor: pointer;
-				padding: 0 0.3em;
-
-				.smartIcon {
-					position: absolute;
+				.myAllegro {
 					display: flex;
-					top: -12px;
-					left: 6px;
-					width: 50px;
-					max-width: 30%;
-					font-size: 8px;
-					scale: .9;
-					color: #656565;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					cursor: pointer;
+					padding: 0 0.3em;
+
+					.smartIcon {
+						position: absolute;
+						display: flex;
+						top: -12px;
+						left: 6px;
+						width: 50px;
+						max-width: 30%;
+						font-size: 8px;
+						scale: 0.9;
+						color: #656565;
+
+						img {
+							rotate: 0deg;
+							margin-left: 5px;
+						}
+					}
+
+					.currentUserName {
+						max-width: 100px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
 
 					img {
-						rotate: 0deg;
-						margin-left: 5px;
+						margin-left: 0;
+						rotate: 90deg;
+						transition: rotate 0.15s;
 					}
-				}
 
-				.currentUserName{
-					max-width: 100px;
-					text-overflow: ellipsis;
-					overflow: hidden;
-				}
-
-				img {
-					margin-left: 0;
-					rotate: 90deg;
-					transition: rotate .15s;
-				}
-
-				.rotateArrow{
-					rotate: 270deg;
+					.rotateArrow {
+						rotate: 270deg;
+					}
 				}
 			}
 		}

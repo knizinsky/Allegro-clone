@@ -14,74 +14,90 @@
 		width: 100%;
 
 		.resultTitle {
-            display: flex;
-            align-items:baseline;
+			display: flex;
+			align-items: baseline;
 			width: 100%;
-            padding: 2em;
+			padding: 2em;
 
-            .searchPhrase{
-                font-size: 3rem;
-            }
+			.searchPhrase {
+				font-size: 3rem;
+			}
 
-            .count{
-                margin-left: .7em;
-                font-size: 1.6rem;
-                color: gray;
-            }
+			.count {
+				margin-left: 0.7em;
+				font-size: 1.6rem;
+				color: gray;
+			}
 		}
 
-        .resultsNotFound{
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            width: 100%;
-            background-color: #fff;
-            margin-bottom: -1em;
+		.resultsNotFound {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			background-color: #fff;
+			margin-bottom: -1em;
+            padding: 1em;
 
-            .imgContainer{
-                img{
-                    height: 240px;
-                    margin-right: 1em;
-                    margin-left: 3em;
-                }
-            }
+			.imgContainer {
+				img {
+					height: 240px;
+					margin-right: 1em;
+					margin-left: 3em;
+				}
+			}
 
-            .resultResponseContainer{
-                strong{
-                    letter-spacing: .4px;
-                }
+			.resultResponseContainer {
+				order: -1;
 
-                .resultResponse{
-                    font-size: 2.3rem;
-                    letter-spacing: .5px;
-                    font-weight: 500;
-                    margin-bottom: 1em;
-                }
+				strong {
+					letter-spacing: 0.4px;
+				}
 
-                ul{
-                    list-style-position: inside;
+				.resultResponse {
+					font-size: 2.3rem;
+					letter-spacing: 0.5px;
+					font-weight: 500;
+					margin-bottom: 1em;
+				}
 
-                    li{
-                        padding: .5em;
-                    }
+				ul {
+					list-style-position: inside;
 
-                    li:first-child{
-                        padding-top: 1em;
-                    }
-                }
-            }
-        }
+					li {
+						padding: 0.5em;
+					}
 
-        .recommendingSection{
-            width: 105%;
-            scale: 0.95;
-        }
+					li:first-child {
+						padding-top: 1em;
+					}
+				}
+			}
+		}
+
+		@media (min-width: 768px) {
+			.resultsNotFound {
+				flex-direction: row;
+				justify-content: start;
+                padding: 0;
+
+				.resultResponseContainer {
+					order: 0;
+				}
+			}
+		}
+
+		.recommendingSection {
+			width: 105%;
+			scale: 0.95;
+		}
 	}
 
 	@media (min-width: 1200px) {
 		.wrapper {
 			width: 80%;
-            max-width: 1900px;
-        }
+			max-width: 1900px;
+		}
 	}
 }
