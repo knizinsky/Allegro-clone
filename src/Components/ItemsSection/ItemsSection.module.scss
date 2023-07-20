@@ -1,24 +1,35 @@
-.sectionWrapper{
-    height: 600px;
+.sectionContainer {
+	height: 600px;
+	width: 100%;
     margin-top: 2em;
-    background-color: #fff;
-    overflow-x: hidden;
-    position: relative;
+	background-color: #fff;
+	overflow-x: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+    padding-top: .7em;
 
-    .sectionTitle{
-        font-size: 25px;
-        font-weight: 500;
-        padding: .7em .7em 0;
-    }
+	.sectionWrapper {
+		width: 100%;
+		max-width: 1740px;
+		overflow: hidden;
+		position: relative;
 
-    .itemsWrapper{
-        display: flex;
-        align-items: center;
-        padding: 2em 1em;
-        transition: transform .3s cubic-bezier(0.65, 0.05, 0.36, 1);
+		.sectionTitle {
+			font-size: 25px;
+			font-weight: 500;
+			padding: 0.7em 0.7em 0;
+		}
 
-        .kidsDayImg{
-            height: 350px;
-        }
-    }
+		.itemsWrapper {
+			display: flex;
+			align-items: center;
+			padding: 2em 1em;
+			transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+			.kidsDayImg {
+				height: 350px;
+			}
+		}
+	}
 }

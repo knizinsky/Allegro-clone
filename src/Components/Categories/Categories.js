@@ -4,7 +4,8 @@ import arrow from '../../Img/action-arrowhead.svg'
 
 const Categories = () => {
   return (
-    <div className={styles.categoriesWrapper}>
+    <div className={styles.categoriesContainer}>
+      <div className={styles.categoriesWrapper}>
         <button className={styles.categoriesBtn}>
             Kategorie
             <img src={arrow} alt="Strzałka" className={styles.actionArrow}/>
@@ -16,6 +17,7 @@ const Categories = () => {
             <li>Allegro inspiruje</li>
             <li>Sprzedawaj na allegro</li>
         </ul>
+    </div>
     </div>
   )
 }

@@ -7,7 +7,7 @@ const InspirationSection = () => {
     const [sectionOffset, setSectionOffset] = useState(0);
 
 	return (
-		<div style={{overflow: 'hidden', position: 'relative', width: '100%'}}>
+		<div className={styles.wrapper}>
             {sectionOffset<0 ? <SectionBtn direction="left" setSectionOffset={setSectionOffset} offset={300}/> : ''}
 			{sectionOffset>-600 ? <SectionBtn direction="right" setSectionOffset={setSectionOffset} offset={300}/> : ''}
             <div className={styles.container} style={{transform: `translateX(${sectionOffset}px)`}}>

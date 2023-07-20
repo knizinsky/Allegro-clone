@@ -9,7 +9,8 @@ import rocket from "../../Img/SpecialOffers/rocket.svg";
 
 const StaticSection = () => {
 	return (
-		<div className={styles.container}>
+		<div className={styles.wrapper}>
+			<div className={styles.container}>
 			<h2>Odkrywaj korzyści</h2>
 			<div className={styles.boxContainer}>
 				<div className={styles.smartBox}>
@@ -36,6 +37,7 @@ const StaticSection = () => {
 					Zobacz, co nowego
 				</div>
 			</div>
+		</div>
 		</div>
 	);
 };

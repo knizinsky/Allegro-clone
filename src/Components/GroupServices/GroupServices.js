@@ -3,7 +3,8 @@ import styles from "./GroupServices.module.scss";
 
 const GroupServices = () => {
 	return (
-		<div className={styles.servicesWrapper}>
+		<div className={styles.servicesContainer}>
+			<div className={styles.servicesWrapper}>
 			<div className={styles.titleWrapper}>
 				<p>Serwisy Grupy Allegro</p>
 			</div>
@@ -19,6 +20,7 @@ const GroupServices = () => {
 					<li>Czc.cz</li>
 				</ul>
 			</div>
+		</div>
 		</div>
 	);
 };

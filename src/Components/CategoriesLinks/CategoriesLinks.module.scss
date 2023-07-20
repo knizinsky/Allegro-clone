@@ -2,57 +2,69 @@
 	background-color: #eceff1;
 	width: 100%;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	flex-wrap: wrap;
-    height: 300px;
-    overflow: hidden;
+	height: 300px;
+	overflow: hidden;
 
-	.linkBox {
-		width: 50%;
-		color: #00a790;
+	.wrapper {
+		background-color: #eceff1;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		overflow: hidden;
+		max-width: 1600px;
 
-		h3 {
-			color: #222222;
-			font-size: 19px;
-			font-weight: 500;
-			padding: 1em 0.7em;
-		}
+		.linkBox {
+			width: 50%;
+			color: #00a790;
 
-		ul {
-			list-style: none;
-
-			li {
-				padding: 0.7em;
+			h3 {
+				color: #222222;
+				font-size: 19px;
+				font-weight: 500;
+				padding: 1em 0.7em;
 			}
-            li:hover{
-                color: #00ceb3;
-                cursor: pointer;
-            }
+
+			ul {
+				list-style: none;
+
+				li {
+					padding: 0.7em;
+				}
+				li:hover {
+					color: #00ceb3;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 }
 
-.showMoreBtn{
-    width: 100%;
-    border-top: 1px solid #c5c8cab7;
-    background-color: #eceff1;
-    color: #008673;
-    letter-spacing: 2px;
-    padding: 1em 0 2em;
+.showMoreBtn {
+	width: 100%;
+	border-top: 1px solid #c5c8cab7;
+	background-color: #eceff1;
+	color: #008673;
+	letter-spacing: 2px;
+	padding: 1em 0 2em;
 }
 
-.showMoreBtn:hover{
-    color: #00baa2;
+.showMoreBtn:hover {
+	color: #00baa2;
 }
 
 @media (min-width: 992px) {
 	.container {
-		.linkBox {
-			width: 25%;
+		.wrapper{
+			.linkBox {
+				width: 25%;
+			}
+	
+			.mediumLinks {
+				width: 33.3333%;
+			}
 		}
-
-        .mediumLinks{
-            width: 33.3333%;
-        }
 	}
 }

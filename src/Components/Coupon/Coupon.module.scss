@@ -1,6 +1,12 @@
-.couponImg {
+.container {
 	width: 100%;
-	max-width: 100%;
-	max-height: 72px;
-	margin-bottom: -3px;
+	display: flex;
+	justify-content: center;
+
+	.couponImg {
+		width: 100%;
+		max-width: 2300px;
+		max-height: 72px;
+		margin-bottom: -3px;
+	}
 }
