@@ -139,7 +139,9 @@ const Navigation = (props) => {
 										<option value="zdrowie">Zdrowie</option>
 									</optgroup>
 								</select>
-								<Button value="SZUKAJ" type="submit"></Button>
+								<Link to='/wyszukaj' className={styles.searchBtn}>
+									<Button value="SZUKAJ" type="submit" style={{height:'100%'}}></Button>
+								</Link>
 							</form>
 						</div>
 					</div>

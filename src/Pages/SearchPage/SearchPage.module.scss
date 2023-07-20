@@ -1,0 +1,87 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		width: 100%;
+
+		.resultTitle {
+            display: flex;
+            align-items:baseline;
+			width: 100%;
+            padding: 2em;
+
+            .searchPhrase{
+                font-size: 3rem;
+            }
+
+            .count{
+                margin-left: .7em;
+                font-size: 1.6rem;
+                color: gray;
+            }
+		}
+
+        .resultsNotFound{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: -1em;
+
+            .imgContainer{
+                img{
+                    height: 240px;
+                    margin-right: 1em;
+                    margin-left: 3em;
+                }
+            }
+
+            .resultResponseContainer{
+                strong{
+                    letter-spacing: .4px;
+                }
+
+                .resultResponse{
+                    font-size: 2.3rem;
+                    letter-spacing: .5px;
+                    font-weight: 500;
+                    margin-bottom: 1em;
+                }
+
+                ul{
+                    list-style-position: inside;
+
+                    li{
+                        padding: .5em;
+                    }
+
+                    li:first-child{
+                        padding-top: 1em;
+                    }
+                }
+            }
+        }
+
+        .recommendingSection{
+            width: 105%;
+            scale: 0.95;
+        }
+	}
+
+	@media (min-width: 1200px) {
+		.wrapper {
+			width: 80%;
+            max-width: 1900px;
+        }
+	}
+}
