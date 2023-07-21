@@ -38,7 +38,7 @@
 			width: 100%;
 			background-color: #fff;
 			margin-bottom: -1em;
-            padding: 1em;
+			padding: 1em;
 
 			.imgContainer {
 				img {
@@ -80,13 +80,92 @@
 			.resultsNotFound {
 				flex-direction: row;
 				justify-content: start;
-                padding: 0;
+				padding: 0;
 
 				.resultResponseContainer {
 					order: 0;
 				}
 			}
 		}
+
+		.resultsFound {
+			background-color: #fff;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding: 2em;
+			position: relative;
+
+			.productContainer {
+				display: flex;
+				align-items: flex-start;
+				border-bottom: 1px solid rgb(207, 207, 207);
+				padding: 1.5em 0 1em;
+
+				.productImgContainer{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 190px;
+					height: 190px;
+					margin-right: 1em;
+
+					.productImg {
+						width: 170px;
+					}
+				}
+
+				.itemTextContainer{
+					position: relative;
+					height: 100%;
+
+					.productTitle{
+						font-size: 1.7rem;
+						margin-bottom: .2em;
+						color: #222222;
+					}
+
+					.itemPrice{
+						font-size: 3rem;
+						font-weight: 500;
+						color: #3a4e58;
+						padding: .2em 0;
+					}
+	
+					.itemBought{
+						color: gray;
+						margin: 5px 0;
+						position: relative;
+						bottom: -10px;
+					}
+	
+					.itemFullprice{
+						color: gray;
+						font-size: 1.4rem;
+						margin-top: .2em;
+					}
+	
+					.itemPayLater{
+						margin: 5px 0 10px;
+						color: gray;
+						font-size: 1.4rem;
+					}
+	
+					.payIcon{
+						position: relative;
+						top: 5px;
+						height: 18px;
+					}
+				}
+			}
+
+			.productContainer:hover{
+				background-color: rgb(245, 245, 245);
+				cursor: pointer;
+			}
+		}
+
+		
 
 		.recommendingSection {
 			width: 105%;

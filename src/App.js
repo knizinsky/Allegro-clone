@@ -103,12 +103,12 @@ function App() {
 				<Route
 					path="/wyszukaj"
 					element={
-						<>
+						<CartContext.Provider value={cartContext}>
 							<Navigation blank={false} />
 							<SearchPage />
 							<CategoriesLinks />
 							<InfoSection />
-						</>
+						</CartContext.Provider>
 					}
 				/>
 			</Routes>

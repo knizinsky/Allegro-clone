@@ -17,6 +17,7 @@ import { CartContext } from "../../Contexts/CartContext";
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase";
+import { SearchContext } from "../../Contexts/SearchContext"; 
 
 const Navigation = (props) => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -27,10 +28,13 @@ const Navigation = (props) => {
 	const [isMyAllegroClicked, setisMyAllegroClicked] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState();
 	const [currentUserEmail, setCurrentUserEmail] = useState(null);
+	const [currentInputSearchValue, setCurrentInputSearchValue] = useState('')
+	const [searchValue, setSearchValue] = useState('')
 	const cartIconRef = useRef();
 	const navRef = useRef();
 
 	const cartContext = useContext(CartContext);
+	const searchContext = useContext(SearchContext);
 
 	let timeoutId;
 
@@ -96,6 +100,15 @@ const Navigation = (props) => {
 		});
 	}, [isLoggedIn]);
 
+	const inputHandler = (event) => {
+		setCurrentInputSearchValue(event.target.value);
+	}
+
+	const submitHandler = () => {
+		setSearchValue(currentInputSearchValue);
+		searchContext.searchProducts(currentInputSearchValue); 
+	}
+
 	return (
 		<nav
 			className={`${styles.navWrapper} ${isScrolled && styles.fixedNav}`}
@@ -112,10 +125,11 @@ const Navigation = (props) => {
 					<>
 						<div className={styles.searchBarWrapper}>
 							<div className={styles.searchBar}>
-								<form>
+								<form onSubmit={submitHandler}>
 									<input
 										type="text"
 										className={styles.searchInput}
+										onChange={inputHandler}
 										placeholder="czego szukasz?"
 									/>
 									<select name="" id="" className={styles.selectCategories}>
@@ -144,7 +158,7 @@ const Navigation = (props) => {
 											<option value="zdrowie">Zdrowie</option>
 										</optgroup>
 									</select>
-									<Link to="/wyszukaj" className={styles.searchBtn}>
+									<Link to="/wyszukaj" className={styles.searchBtn} onClick={submitHandler}>
 										<Button
 											value="SZUKAJ"
 											type="submit"
