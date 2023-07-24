@@ -4,9 +4,16 @@
 	justify-content: center;
 
 	.couponImg {
-		width: 100%;
-		max-width: 2300px;
-		max-height: 72px;
-		margin-bottom: -3px;
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.couponImg {
+			display: block;
+			width: 100%;
+			max-width: 2300px;
+			max-height: 72px;
+			margin-bottom: -3px;
+		}
 	}
 }
