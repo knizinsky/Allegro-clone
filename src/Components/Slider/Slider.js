@@ -36,20 +36,20 @@ const Slider = () => {
 				break;
 		}
 	};
-	
-	useEffect(()=>{
-		const sliderChange = setInterval(()=>{
-			if(sliderPosition === (sliderWidth * -3)){
-				setSliderPosition(0)
-			}else{
-				setSliderPosition(prevPosition => prevPosition - sliderWidth)
+
+	useEffect(() => {
+		const sliderChange = setInterval(() => {
+			if (sliderPosition === sliderWidth * -3) {
+				setSliderPosition(0);
+			} else {
+				setSliderPosition((prevPosition) => prevPosition - sliderWidth);
 			}
-		},4000)
+		}, 4000);
 
 		return () => {
 			clearInterval(sliderChange);
-		}
-	},[sliderWidth, sliderPosition])
+		};
+	}, [sliderWidth, sliderPosition]);
 
 	return (
 		<>
@@ -82,18 +82,30 @@ const Slider = () => {
 						mainTextBgColor="#00a790"
 						subTextBgColor="#fac314"
 					></Slide>
-					<Slide img={garnierPromo} alt="Reklama garnier"></Slide>
+					<Slide
+						img={garnierPromo}
+						alt="Reklama garnier"
+						mainText="Dni piękna GARNIER - Zadbaj o siebie"
+						mainTextColor="black"
+						mainTextBgColor="#f2d5e0"
+						onlyMobile="true"
+					></Slide>
 					<Slide
 						img={fatherDayPromo}
 						alt="Reklama na dzień ojca"
-						mainText="Dzień Ojca"
+						mainText="Dzień Ojca."
 						subText="Prezenty w wymarzonych cenach"
 						mainTextColor="black"
 						subTextColor="white"
 						mainTextBgColor="#fff"
 						subTextBgColor="#0d1e28"
 					></Slide>
-					<Slide img={garnierPromo2} alt="Reklama garnier"></Slide>
+					<Slide
+						img={garnierPromo2}
+						alt="Reklama garnier"
+						mainText="Przywróc włosom naturalny błysk"
+						onlyMobile="true"
+					></Slide>
 				</div>
 			</div>
 			<div className={styles.navDots}>
