@@ -3,6 +3,7 @@
 	background-color: #fff;
 	display: flex;
 	justify-content: center;
+	overflow-x:auto;
 
 	.categoriesWrapper {
 		display: flex;
@@ -45,5 +46,11 @@
 		.categoriesWrapper {
 			width: 1600px;
 		}
+	}
+}
+
+@media (min-width:992px) {
+	.categoriesContainer {
+		overflow-x:unset;
 	}
 }
