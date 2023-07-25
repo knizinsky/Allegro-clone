@@ -8,8 +8,13 @@ This project is created solely for educational purposes. It is not intended for 
 
 ## Project Description
 
-This project is an attempt to recreate the look and functionality of the popular e-commerce platform Allegro. It utilizes React for building the user interface, HTML for structuring the page, and SCSS Modules for styling the components.
+This project is an attempt to recreate the look and functionality of the popular e-commerce platform Allegro. It utilizes React for building the user interface, HTML for structuring the page, SCSS Modules for styling the components and Firebase for user authentication.
 
+## Functions
+- `Search products`
+- `Adding products to cart`
+- `Register user`
+- `Log in user`
 
 ## Contributing
 
