@@ -13,8 +13,8 @@ This project is an attempt to recreate the look and functionality of the popular
 ## Functions
 - `Search products`
 - `Adding products to cart`
-- `Register user`
-- `Log in user`
+- `User registration`
+- `User log in`
 
 ## Contributing
 
